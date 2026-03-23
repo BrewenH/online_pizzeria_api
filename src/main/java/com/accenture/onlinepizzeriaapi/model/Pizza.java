@@ -23,6 +23,9 @@ public class Pizza {
     Double price;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "pizza_ingredients",
+            joinColumns = @JoinColumn(name = "pizza_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     List<Ingredient> ingredients;
     Boolean removedFromMenu;
 
