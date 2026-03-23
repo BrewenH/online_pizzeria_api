@@ -1,5 +1,6 @@
 package com.accenture.onlinepizzeriaapi.service.dto;
 
+import com.accenture.onlinepizzeriaapi.model.Ingredient;
 import com.accenture.onlinepizzeriaapi.model.enums.Size;
 
 import java.util.List;
