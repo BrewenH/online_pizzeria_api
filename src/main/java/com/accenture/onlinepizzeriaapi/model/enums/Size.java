@@ -1,4 +1,4 @@
-package com.accenture.onlinepizzeriaapi.model;
+package com.accenture.onlinepizzeriaapi.model.enums;
 
 public enum Size {
 

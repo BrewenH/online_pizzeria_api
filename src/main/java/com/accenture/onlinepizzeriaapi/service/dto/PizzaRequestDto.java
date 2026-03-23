@@ -1,6 +1,6 @@
 package com.accenture.onlinepizzeriaapi.service.dto;
 
-import com.accenture.onlinepizzeriaapi.model.Size;
+import com.accenture.onlinepizzeriaapi.model.enums.Size;
 import jakarta.validation.constraints.NotBlank;
 
 public record PizzaRequestDto(

@@ -1,6 +1,6 @@
 package com.accenture.onlinepizzeriaapi.service.dto;
 
-import com.accenture.onlinepizzeriaapi.model.Size;
+import com.accenture.onlinepizzeriaapi.model.enums.Size;
 
 import java.util.List;
 import java.util.UUID;
