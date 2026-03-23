@@ -1,10 +1,7 @@
 package com.accenture.onlinepizzeriaapi.model;
 
 import com.accenture.onlinepizzeriaapi.model.enums.Size;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,8 @@ public class Pizza {
     String name;
     Size size;
     Double price;
+
+    @ManyToMany(cascade = CascadeType.ALL)
     List<Ingredient> ingredients;
     Boolean removedFromMenu;
 
