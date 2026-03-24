@@ -32,17 +32,5 @@ public class PizzaServiceImpl implements PizzaService {
     public void checkPizza(PizzaRequestDto dtoRequest) {
         if (dtoRequest == null)
             throw new PizzaException(messages.getMessage("pizza.null"));
-        if (null == dtoRequest.name() || dtoRequest.name().isBlank())
-            throw new PizzaException(messages.getMessage("pizza.name.null"));
-        if (dtoRequest.size() == null)
-            throw new PizzaException(messages.getMessage("pizza.size.null"));
-        if (dtoRequest.price() == null)
-            throw new PizzaException(messages.getMessage("pizza.price.null"));
-        if (dtoRequest.ingredients() == null)
-            throw new PizzaException(messages.getMessage("pizza.ingredients.null"));
-        if (dtoRequest.removedFromMenu() == null)
-            throw new PizzaException(messages.getMessage("pizza.removedFromMenu.null"));
-
-
     }
 }
