@@ -1,6 +1,7 @@
 package com.accenture.onlinepizzeriaapi.controller.advice;
 
 import com.accenture.onlinepizzeriaapi.exception.IngredientException;
+import com.accenture.onlinepizzeriaapi.exception.PizzaException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -29,7 +30,7 @@ public class ControllerAdvice {
      * Appelée quand une exception métier survient.
      * Renvoie un 400 BAD_REQUEST avec le message métier.
      */
-    @ExceptionHandler({IngredientException.class})
+    @ExceptionHandler({IngredientException.class, PizzaException.class})
     public ResponseEntity<ErrorDto> businessException(Exception e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDto(
                 java.time.LocalDateTime.now(),

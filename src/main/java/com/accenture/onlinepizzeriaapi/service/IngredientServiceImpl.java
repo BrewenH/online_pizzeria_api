@@ -6,6 +6,7 @@ import com.accenture.onlinepizzeriaapi.model.Ingredient;
 import com.accenture.onlinepizzeriaapi.repository.IngredientDao;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -26,16 +28,30 @@ public class IngredientServiceImpl implements IngredientService {
     private final IngredientMapper ingredientMapper;
     private final MessageSourceAccessor messages;
 
+    /** {@inheritDoc} */
     @Override
     @Transactional(readOnly = true)
     public List<IngredientResponseDto> findAll() {
-        return List.of();
+        log.info("Entering in the method that lists all ingredients in stock");
+
+        List<Ingredient> ingredients = ingredientDao.findAll();
+
+        return ingredients.stream()
+                .map(ingredient -> ingredientMapper.toIngredientResponseDto(ingredient))
+                .toList();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public IngredientResponseDto findById() {
-        return null;
+    public IngredientResponseDto findById(UUID id) {
+        log.info("Entering in the method that finds ingredient in stock with input id= {}", id);
+        Ingredient optIngredient = null;
+        try {
+            optIngredient = ingredientDao.getReferenceById(id);
+        } catch (EntityNotFoundException _) {
+            throw new EntityNotFoundException(messages.getMessage("ingredient.id.notfound"));
+        }
+        return ingredientMapper.toIngredientResponseDto(optIngredient);
     }
 
     /** {@inheritDoc} */
