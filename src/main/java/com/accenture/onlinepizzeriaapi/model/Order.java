@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -25,7 +25,7 @@ public class Order {
     private List<Pizza> pizzas;
     private EStatus status;
     private LocalDate date;
-    private double totalPrice;
+    private Double totalPrice;
 
     public Order(List<Pizza> pizzas, EStatus status, LocalDate date, double totalPrice) {
         this.pizzas = pizzas;

@@ -12,7 +12,6 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Pizza {
 
     @Id
@@ -22,7 +21,7 @@ public class Pizza {
     Size size;
     Double price;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "pizza_ingredients",
             joinColumns = @JoinColumn(name = "pizza_id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
