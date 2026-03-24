@@ -12,7 +12,6 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Pizza {
 
     @Id
