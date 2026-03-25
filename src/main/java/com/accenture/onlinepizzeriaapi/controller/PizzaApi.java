@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Tag(name = "Pizzas", description = "Online pizzeria API")
+@RequestMapping("/pizzas")
 public interface PizzaApi {
     @Operation(summary = "Read all pizzas")
     @ApiResponse(responseCode = "200", description = "List all pizzas")
