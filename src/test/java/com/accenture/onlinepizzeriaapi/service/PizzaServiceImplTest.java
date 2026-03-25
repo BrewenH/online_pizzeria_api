@@ -14,8 +14,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.support.MessageSourceAccessor;
-
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -175,6 +175,27 @@ class PizzaServiceImplTest {
                     () -> Assertions.assertEquals(price, returnedResponse.price(), "Price should be the same as the expected"),
                     () -> Assertions.assertEquals(ingredients, returnedResponse.ingredients(), "Ingredients should be the same as the expected"),
                     () -> Assertions.assertEquals(removedFromMenu, returnedResponse.removedFromMenu(), "RemovedFromMenu should be the same as the expected"));
+        }
+
+        @Test
+        @DisplayName("Test method findByName from service, must return correct output")
+        void findByNameValidTest() {
+
+            String name = "Margherita";
+            Size size = Size.MEDIUM;
+            Double price = 12.90;
+            List<Ingredient> ingredients = List.of();
+            Boolean removedFromMenu = false;
+
+            Pizza originalPizza = new Pizza(name, size, price, ingredients, removedFromMenu);
+            originalPizza.setName(name);
+
+            Mockito.when(pizzaDao.findByName("Margherita")).thenReturn(Optional.of(originalPizza));
+
+            Optional<Pizza> returnedResponse = pizzaDao.findByName(name);
+
+            Assertions.assertNotNull(returnedResponse);
+            Assertions.assertEquals("Margherita", returnedResponse.get().getName());
         }
 
 
