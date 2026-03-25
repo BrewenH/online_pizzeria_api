@@ -26,7 +26,12 @@ public class PizzaController implements PizzaApi {
 
     @Override
     public ResponseEntity<PizzaResponseDto> findById(UUID idPizza) {
-        return null;
+        return ResponseEntity.ok(pizzaService.findById(idPizza));
+    }
+
+    @Override
+    public ResponseEntity<PizzaResponseDto> findByName(String name) {
+        return ResponseEntity.ok(pizzaService.findByName(name));
     }
 
     @Override

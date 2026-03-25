@@ -14,4 +14,6 @@ public interface PizzaService {
     PizzaResponseDto findById(UUID inputId);
 
     List<PizzaResponseDto> findAll();
+
+    PizzaResponseDto findByName(String name);
 }

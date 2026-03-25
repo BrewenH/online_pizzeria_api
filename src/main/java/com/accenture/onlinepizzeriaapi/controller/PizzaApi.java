@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Tag(name = "Pizzas", description = "Online pizzeria API")
+@RequestMapping("/pizzas")
 public interface PizzaApi {
     @Operation(summary = "Read all pizzas")
     @ApiResponse(responseCode = "200", description = "List all pizzas")
@@ -28,6 +29,13 @@ public interface PizzaApi {
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
     @GetMapping("/{id}")
     ResponseEntity<PizzaResponseDto> findById(@Parameter(description = "Pizza id not found", required = true) @PathVariable("id") UUID idPizza);
+
+    @Operation(summary = "Get a pizza by its name")
+    @ApiResponse(responseCode = "200", description = "Pizza found")
+    @ApiResponse(responseCode = "404", description = "Pizza not found",
+            content = @Content(schema = @Schema(implementation = ErrorDto.class)))
+    @GetMapping("/name")
+    ResponseEntity<PizzaResponseDto> findByName(@Parameter(description = "Pizza name not found", required = true) @PathVariable("name") String name);
 
     @Operation(summary = "Add a new pizza")
     @ApiResponse(responseCode = "200", description = "Pizza found")
