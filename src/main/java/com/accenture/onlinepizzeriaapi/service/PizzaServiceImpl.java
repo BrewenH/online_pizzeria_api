@@ -7,10 +7,14 @@ import com.accenture.onlinepizzeriaapi.model.Pizza;
 import com.accenture.onlinepizzeriaapi.repository.PizzaDao;
 import com.accenture.onlinepizzeriaapi.service.dto.PizzaRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.PizzaResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -32,5 +36,25 @@ public class PizzaServiceImpl implements PizzaService {
     public void checkPizza(PizzaRequestDto dtoRequest) {
         if (dtoRequest == null)
             throw new PizzaException(messages.getMessage("pizza.null"));
+    }
+
+    @Override
+    public PizzaResponseDto findById(UUID id) {
+        Pizza optPizza = null;
+        try {
+            optPizza = pizzaDao.getReferenceById(id);
+        } catch (EntityNotFoundException _) {
+            throw new EntityNotFoundException(messages.getMessage("pizza.id.notFound"));
+        }
+
+        return pizzaMapper.toPizzaResponseDto(optPizza);
+    }
+
+    @Override
+    public List<PizzaResponseDto> findAll() {
+        List<Pizza> pizzas = pizzaDao.findAll();
+        return pizzas.stream()
+                .map(pizzaMapper::toPizzaResponseDto)
+                .toList();
     }
 }

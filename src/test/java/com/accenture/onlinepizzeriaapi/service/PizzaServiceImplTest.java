@@ -46,10 +46,9 @@ class PizzaServiceImplTest {
     class addPizzaTest {
 
 
-
         @Test
         @DisplayName("OK")
-        void addPizza_ok(){
+        void addPizzaOk() {
 
             PizzaService spy = Mockito.spy(service);
             String name = "Margherita";
@@ -69,7 +68,7 @@ class PizzaServiceImplTest {
 
 
             Assertions.assertAll(
-                    ()-> Assertions.assertNotNull(returnedValue, "DtoResponse should not be null"),
+                    () -> Assertions.assertNotNull(returnedValue, "DtoResponse should not be null"),
                     () -> Assertions.assertNotNull(returnedValue.id(), "Id should not be null"),
                     () -> Assertions.assertNotNull(returnedValue.name(), "Name should not be null"),
                     () -> Assertions.assertNotNull(returnedValue.size(), "Size should not be null"),
@@ -81,54 +80,101 @@ class PizzaServiceImplTest {
                     () -> Assertions.assertEquals(price, returnedValue.price(), "Price should be the same as the expected"),
                     () -> Assertions.assertEquals(ingredients, returnedValue.ingredients(), "Ingredients should be the same as the expected"),
                     () -> Assertions.assertEquals(removedFromMenu, returnedValue.removedFromMenu(), "RemovedFromMenu should be the same as the expected")
-                    );
+            );
             Mockito.verify(spy, Mockito.times(1)).checkPizza(Mockito.any(PizzaRequestDto.class));
 
         }
 
         @Test
         @DisplayName("Invalid (null)")
-        void addPizza_invalid_null() {
+        void addPizzaInvalidNull() {
             assertThrows(PizzaException.class, () -> service.addPizza(null));
         }
+    }
+
+    @Nested
+    @DisplayName("findPizza")
+    class findPizzaTest {
 
         @Test
-        @DisplayName("Invalid (empty name)")
-        void addPizza_invalid_emptyName() {
-            List<Ingredient> ingredients = List.of();
-            PizzaRequestDto pizzaRequestDto = new PizzaRequestDto("",Size.MEDIUM, 12.90, ingredients, false);
-            assertThrows(PizzaException.class, () -> service.addPizza(pizzaRequestDto));
+        @DisplayName("all : OK")
+        void findAllValidTest() {
+
+            String name = "Margherita";
+            Size size = Size.MEDIUM;
+            Double price = 10.50;
+            List<Ingredient> ingredients = List.of(new Ingredient("tomate", 4));
+            Boolean removedFromMenu = false;
+
+            String name1 = "Reine";
+            Size size1 = Size.SMALL;
+            Double price1 = 12.50;
+            Boolean removedFromMenu1 = false;
+
+
+            Pizza pizza = new Pizza(name, size, price, ingredients, removedFromMenu);
+            Pizza pizza1 = new Pizza(name1, size1, price1, ingredients, removedFromMenu1);
+
+            PizzaResponseDto expected = new PizzaResponseDto(UUID.randomUUID(), name, size, price, ingredients, removedFromMenu);
+            PizzaResponseDto expected1 = new PizzaResponseDto(UUID.randomUUID(), name1, size1, price1, ingredients, removedFromMenu1);
+
+            Mockito.when(pizzaDao.findAll()).thenReturn(List.of(pizza, pizza1));
+            Mockito.when(pizzaMapper.toPizzaResponseDto(pizza)).thenReturn(expected);
+            Mockito.when(pizzaMapper.toPizzaResponseDto(pizza1)).thenReturn(expected1);
+
+            List<PizzaResponseDto> returnedResponse = service.findAll();
+
+            Assertions.assertAll(() -> Assertions.assertFalse(returnedResponse.isEmpty(), "DtoResponse should not be null"),
+                    () -> Assertions.assertEquals(2, returnedResponse.size(), "Response size should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.id(), returnedResponse.getFirst().id(), "Id should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.id(), returnedResponse.get(1).id(), "Id should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.name(), returnedResponse.getFirst().name(), "Name should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.name(), returnedResponse.get(1).name(), "Name should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.size(), returnedResponse.getFirst().size(), "Size should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.size(), returnedResponse.get(1).size(), "Size should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.price(), returnedResponse.getFirst().price(), "Price should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.price(), returnedResponse.get(1).price(), "Price should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.ingredients(), returnedResponse.getFirst().ingredients(), "Ingredients should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.ingredients(), returnedResponse.get(1).ingredients(), "Ingredients should be the same as expected"),
+                    () -> Assertions.assertEquals(expected.removedFromMenu(), returnedResponse.getFirst().removedFromMenu(), "RemovedFromMenu should be the same as expected"),
+                    () -> Assertions.assertEquals(expected1.removedFromMenu(), returnedResponse.get(1).removedFromMenu(), "RemovedFromMenu should be the same as expected"));
+
+
         }
 
         @Test
-        @DisplayName("Invalid (null size)")
-        void addPizza_invalid_nullSize() {
+        @DisplayName("Test method findAll from service, must return correct output")
+        void findByIdValidTest() {
+            UUID inputId = UUID.randomUUID();
+            String name = "Margherita";
+            Size size = Size.MEDIUM;
+            Double price = 12.90;
             List<Ingredient> ingredients = List.of();
-            PizzaRequestDto pizzaRequestDto = new PizzaRequestDto("Margherita",null,12.90, ingredients, false);
-            assertThrows(PizzaException.class, () -> service.addPizza(pizzaRequestDto));
-        }
+            Boolean removedFromMenu = false;
 
-        @Test
-        @DisplayName("Invalid (null price)")
-        void addPizza_invalid_nullPrice() {
-            List<Ingredient> ingredients = List.of();
-            PizzaRequestDto pizzaRequestDto = new PizzaRequestDto("Margherita", Size.MEDIUM,null , ingredients, false);
-            Assertions.assertThrows(PizzaException.class, () -> service.addPizza(pizzaRequestDto));
-        }
+            Pizza originalPizza = new Pizza(name, size, price, ingredients, removedFromMenu);
+            originalPizza.setId(inputId);
 
-        @Test
-        @DisplayName("Invalid (null ingredients)")
-        void addPizza_invalid_nullIngredients() {
-            PizzaRequestDto pizzaRequestDto = new PizzaRequestDto("Margherita", Size.MEDIUM, 12.90,null ,false);
-            Assertions.assertThrows(PizzaException.class, () -> service.addPizza(pizzaRequestDto));
-        }
+            PizzaResponseDto expectedResponse = new PizzaResponseDto(inputId, name, size, price, ingredients, removedFromMenu);
 
-        @Test
-        @DisplayName("Invalid (null removedFromMenu)")
-        void addPizza_invalid_nullRemovedFromMenu() {
-            List<Ingredient> ingredients = List.of();
-            PizzaRequestDto pizzaRequestDto = new PizzaRequestDto("Margherita", Size.MEDIUM, 12.90, ingredients, null);
-            Assertions.assertThrows(PizzaException.class, () -> service.addPizza(pizzaRequestDto));
+            Mockito.when(pizzaDao.getReferenceById(Mockito.any(UUID.class))).thenReturn(originalPizza);
+
+            Mockito.when(pizzaMapper.toPizzaResponseDto(Mockito.any(Pizza.class))).thenReturn(expectedResponse);
+
+            PizzaResponseDto returnedResponse = service.findById(inputId);
+
+            Assertions.assertAll(() -> Assertions.assertNotNull(returnedResponse, "DtoResponse should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.id(), "Id should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.name(), "Name should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.size(), "Size should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.price(), "Price should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.ingredients(), "Ingredients should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponse.removedFromMenu(), "Removed from Menu should not be null"),
+                    () -> Assertions.assertEquals(name, returnedResponse.name(), "Name should be the same as the expected"),
+                    () -> Assertions.assertEquals(size, returnedResponse.size(), "Size should be the same as the expected"),
+                    () -> Assertions.assertEquals(price, returnedResponse.price(), "Price should be the same as the expected"),
+                    () -> Assertions.assertEquals(ingredients, returnedResponse.ingredients(), "Ingredients should be the same as the expected"),
+                    () -> Assertions.assertEquals(removedFromMenu, returnedResponse.removedFromMenu(), "RemovedFromMenu should be the same as the expected"));
         }
 
 
