@@ -25,13 +25,14 @@ public class IngredientController implements IngredientApi {
     @Override
     public ResponseEntity<List<IngredientResponseDto>> findAll() {
 
+        log.info("Access to endpoint GET/ingredients with success");
         return ResponseEntity.ok(ingredientService.findAll());
     }
 
     @Override
     public ResponseEntity<IngredientResponseDto> findById(UUID idIngredient) {
-
-        return ResponseEntity.ok(ingredientService.findById());
+        log.info("Access to endpoint GET/ingredients/{id} with success");
+        return ResponseEntity.ok(ingredientService.findById(idIngredient));
     }
 
     @Override
