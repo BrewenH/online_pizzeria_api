@@ -8,9 +8,13 @@ import java.util.UUID;
 
 public interface IngredientService {
 
+    /**
+     * @param
+     * @return List<IngredientResponseDto>
+     */
     List<IngredientResponseDto> findAll();
 
-    IngredientResponseDto findById();
+    IngredientResponseDto findById(UUID id);
 
     /**
      * @param requestDto
