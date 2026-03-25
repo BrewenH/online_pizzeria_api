@@ -844,3 +844,190 @@
 2026-03-25T13:43:38.029+01:00  INFO 32692 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-25T13:43:38.032+01:00  INFO 32692 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-25T13:43:38.040+01:00  INFO 32692 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-25T13:59:46.793+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] c.PizzaControllerIntegrationEndToEndTest : Starting PizzaControllerIntegrationEndToEndTest using Java 25.0.2 with PID 27304 (started by brewen.huiban in C:\Users\brewen.huiban\Desktop\Exercices\Projets\02-projet-GestionPizzeriaEnLigne\onlinePizzeriaApi)
+2026-03-25T13:59:46.794+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] c.PizzaControllerIntegrationEndToEndTest : The following 1 profile is active: "test"
+2026-03-25T13:59:48.900+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-25T13:59:49.013+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 3 JPA repository interfaces.
+2026-03-25T13:59:49.923+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-03-25T13:59:49.939+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-25T13:59:49.940+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-25T13:59:50.049+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3230 ms
+2026-03-25T13:59:50.431+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-25T13:59:50.552+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-25T13:59:51.280+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-25T13:59:51.331+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-25T13:59:51.624+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-03-25T13:59:51.627+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-25T13:59:51.662+01:00  WARN 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.core                   : HHH000511: The 2.4.240 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly.The minimum supported version is 13.0.0. Check the community dialects project for available legacy versions.
+2026-03-25T13:59:51.667+01:00  WARN 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-25T13:59:51.697+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 2.4.240
+	Default catalog/schema: TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-25T13:59:53.169+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-25T13:59:53.202+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    set client_min_messages = WARNING
+2026-03-25T13:59:53.205+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza 
+       drop constraint if exists FKdy4v1k7ovlw06qndw0u9l4nwh
+2026-03-25T13:59:53.206+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKk4ujfrxw0ka1l7a0xf8xoppf2
+2026-03-25T13:59:53.207+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKbmkay60qrmenad7mc32udtvab
+2026-03-25T13:59:53.208+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    drop table if exists ingredient cascade
+2026-03-25T13:59:53.210+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    drop table if exists orders cascade
+2026-03-25T13:59:53.210+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    drop table if exists pizza cascade
+2026-03-25T13:59:53.211+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    drop table if exists pizza_ingredients cascade
+2026-03-25T13:59:53.218+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    create table ingredient (
+        quantity integer not null,
+        id uuid not null,
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-25T13:59:53.226+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    create table orders (
+        date date,
+        status smallint check ((status between 0 and 3)),
+        total_price float(53),
+        id uuid not null,
+        primary key (id)
+    )
+2026-03-25T13:59:53.231+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    create table pizza (
+        price float(53),
+        removed_from_menu boolean,
+        size smallint check ((size between 0 and 2)),
+        id uuid not null,
+        pizzas_id uuid,
+        name varchar(255),
+        primary key (id)
+    )
+2026-03-25T13:59:53.233+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    create table pizza_ingredients (
+        ingredient_id uuid not null,
+        pizza_id uuid not null
+    )
+2026-03-25T13:59:53.233+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza 
+       add constraint FKdy4v1k7ovlw06qndw0u9l4nwh 
+       foreign key (pizzas_id) 
+       references orders
+2026-03-25T13:59:53.248+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKk4ujfrxw0ka1l7a0xf8xoppf2 
+       foreign key (ingredient_id) 
+       references ingredient
+2026-03-25T13:59:53.250+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKbmkay60qrmenad7mc32udtvab 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-25T13:59:53.254+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T13:59:53.424+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-25T13:59:53.898+01:00  WARN 27304 --- [onlinePizzeriaApi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-25T13:59:54.383+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-25T13:59:55.601+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 51378 (http) with context path '/'
+2026-03-25T13:59:55.608+01:00  INFO 27304 --- [onlinePizzeriaApi] [main] c.PizzaControllerIntegrationEndToEndTest : Started PizzaControllerIntegrationEndToEndTest in 9.333 seconds (process running for 11.62)
+2026-03-25T13:59:56.434+01:00  INFO 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-25T13:59:56.435+01:00  INFO 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-25T13:59:56.436+01:00  INFO 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-25T13:59:56.645+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        pizza
+        (name, price, removed_from_menu, size, id) 
+    values
+        (?, ?, ?, ?, ?)
+2026-03-25T13:59:56.652+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [Margherita]
+2026-03-25T13:59:56.652+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:DOUBLE) <- [10.5]
+2026-03-25T13:59:56.652+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:BOOLEAN) <- [false]
+2026-03-25T13:59:56.652+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:TINYINT) <- [MEDIUM]
+2026-03-25T13:59:56.652+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:UUID) <- [5c11d2ae-53ef-453c-b906-8f9cc754574d]
+2026-03-25T13:59:56.717+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pizza
+        (name, price, removed_from_menu, size, id) 
+    values
+        (?, ?, ?, ?, ?)
+2026-03-25T13:59:56.717+01:00 TRACE 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [Margherita]
+2026-03-25T13:59:56.717+01:00 TRACE 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jdbc.bind              : binding parameter (2:DOUBLE) <- [10.5]
+2026-03-25T13:59:56.717+01:00 TRACE 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jdbc.bind              : binding parameter (3:BOOLEAN) <- [false]
+2026-03-25T13:59:56.717+01:00 TRACE 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jdbc.bind              : binding parameter (4:TINYINT) <- [MEDIUM]
+2026-03-25T13:59:56.717+01:00 TRACE 27304 --- [onlinePizzeriaApi] [main] org.hibernate.orm.jdbc.bind              : binding parameter (5:UUID) <- [068ad0f0-f7b9-4685-a4ec-51083aabd2cc]
+2026-03-25T13:59:56.934+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-2] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.name,
+        p1_0.price,
+        p1_0.removed_from_menu,
+        p1_0.size 
+    from
+        pizza p1_0
+2026-03-25T13:59:56.969+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.pizza_id,
+        i1_1.id,
+        i1_1.name,
+        i1_1.quantity 
+    from
+        pizza_ingredients i1_0 
+    join
+        ingredient i1_1 
+            on i1_1.id=i1_0.ingredient_id 
+    where
+        i1_0.pizza_id=?
+2026-03-25T13:59:56.971+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [5c11d2ae-53ef-453c-b906-8f9cc754574d]
+2026-03-25T13:59:56.977+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.pizza_id,
+        i1_1.id,
+        i1_1.name,
+        i1_1.quantity 
+    from
+        pizza_ingredients i1_0 
+    join
+        ingredient i1_1 
+            on i1_1.id=i1_0.ingredient_id 
+    where
+        i1_0.pizza_id=?
+2026-03-25T13:59:56.978+01:00 TRACE 27304 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [068ad0f0-f7b9-4685-a4ec-51083aabd2cc]
+2026-03-25T13:59:57.034+01:00  INFO 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-25T13:59:57.047+01:00  INFO 27304 --- [onlinePizzeriaApi] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-25T13:59:57.054+01:00  INFO 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T13:59:57.056+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    set client_min_messages = WARNING
+2026-03-25T13:59:57.057+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza 
+       drop constraint if exists FKdy4v1k7ovlw06qndw0u9l4nwh
+2026-03-25T13:59:57.059+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKk4ujfrxw0ka1l7a0xf8xoppf2
+2026-03-25T13:59:57.060+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       drop constraint if exists FKbmkay60qrmenad7mc32udtvab
+2026-03-25T13:59:57.061+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists ingredient cascade
+2026-03-25T13:59:57.062+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists orders cascade
+2026-03-25T13:59:57.063+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pizza cascade
+2026-03-25T13:59:57.064+01:00 DEBUG 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pizza_ingredients cascade
+2026-03-25T13:59:57.068+01:00  INFO 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-25T13:59:57.071+01:00  INFO 27304 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

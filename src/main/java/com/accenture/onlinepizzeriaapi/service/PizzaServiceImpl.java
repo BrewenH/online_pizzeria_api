@@ -57,4 +57,9 @@ public class PizzaServiceImpl implements PizzaService {
                 .map(pizzaMapper::toPizzaResponseDto)
                 .toList();
     }
+
+    @Override
+    public PizzaResponseDto findByName(String name) {
+        return null;
+    }
 }
