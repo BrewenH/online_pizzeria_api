@@ -2,6 +2,7 @@ package com.accenture.onlinepizzeriaapi.controller.impl;
 
 import com.accenture.onlinepizzeriaapi.controller.IngredientApi;
 import com.accenture.onlinepizzeriaapi.service.IngredientService;
+import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
 import lombok.AllArgsConstructor;
@@ -50,14 +51,8 @@ public class IngredientController implements IngredientApi {
     }
 
     @Override
-    public ResponseEntity<Void> deleteIngredient(UUID idIngredient) {
-        ingredientService.deleteIngredient(idIngredient);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
-
-    @Override
-    public ResponseEntity<IngredientResponseDto> patchIngredient(UUID idIngredient, IngredientRequestDto requestDto) {
-        IngredientResponseDto responseDto = ingredientService.patchIngredient(idIngredient,requestDto);
+    public ResponseEntity<IngredientResponseDto> patchIngredient(UUID idIngredient, IngredientPatchDto patchDto) {
+        IngredientResponseDto responseDto = ingredientService.patchIngredient(idIngredient,patchDto);
         return ResponseEntity.ok(responseDto);
     }
 }

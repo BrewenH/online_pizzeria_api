@@ -1,0 +1,9 @@
+package com.accenture.onlinepizzeriaapi.service.dto;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record IngredientPatchDto(
+        int quantity) {
+}

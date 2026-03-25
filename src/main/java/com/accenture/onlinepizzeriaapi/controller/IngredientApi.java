@@ -1,6 +1,7 @@
 package com.accenture.onlinepizzeriaapi.controller;
 
 import com.accenture.onlinepizzeriaapi.controller.advice.ErrorDto;
+import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,17 +39,10 @@ public interface IngredientApi {
     @PostMapping
     ResponseEntity<Void> addIngredient(@RequestBody IngredientRequestDto requestDto);
 
-    @Operation(summary = "Delete an ingredient by its id")
-    @ApiResponse(responseCode = "204", description = "Ingredient deleted")
-    @ApiResponse(responseCode = "404", description = "Ingredient not found",
-            content = @Content(schema = @Schema(implementation = ErrorDto.class)))
-    @DeleteMapping("/{id}")
-    ResponseEntity<Void> deleteIngredient(@Parameter(description = "Ingredient id not found", required = true) @PathVariable("id") UUID idIngredient);
-
     @Operation(summary = "Modify an ingredient or its stock quantity (PATCH)")
     @ApiResponse(responseCode = "200", description = "Ingredient successfully updated")
     @ApiResponse(responseCode = "404", description = "Ingredient not found",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
     @PatchMapping("/{id}")
-    ResponseEntity<IngredientResponseDto> patchIngredient(@Parameter(description = "Ingredient id not found", required = true) @PathVariable("id") UUID idIngredient, @RequestBody IngredientRequestDto requestDto);
+    ResponseEntity<IngredientResponseDto> patchIngredient(@Parameter(description = "Ingredient id not found", required = true) @PathVariable("id") UUID idIngredient, @RequestBody IngredientPatchDto patchDto);
 }
