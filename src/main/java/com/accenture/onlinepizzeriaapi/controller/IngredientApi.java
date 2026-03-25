@@ -39,7 +39,7 @@ public interface IngredientApi {
     @GetMapping("/{name}")
     ResponseEntity<IngredientResponseDto> findByName(@Parameter(description = "Ingredient name not found", required = true) @PathVariable("name") String name);
 
-    @Operation(summary = "Add a new district")
+    @Operation(summary = "Add a new ingredient")
     @ApiResponse(responseCode = "201", description = "Ingredient created")
     @ApiResponse(responseCode = "400", description = "Invalid request",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))

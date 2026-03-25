@@ -6,9 +6,9 @@ import com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -79,14 +79,14 @@ class IngredientControllerIntegrationTest {
 
     @Test
     @DisplayName("Test find all ingredients OK")
-    void testFindAllIngredientSuccess() throws Exception{
+    void testFindAllIngredientSuccess() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(API_INGREDIENTS_ENDPOINT))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
     @DisplayName("Test find ingredient by its name OK")
-    void testFindByNameSuccess() throws Exception{
+    void testFindByNameSuccess() throws Exception {
 
         UUID id = UUID.randomUUID();
         String name = "Mozzarella";
@@ -99,19 +99,20 @@ class IngredientControllerIntegrationTest {
         mockMvc.perform(MockMvcRequestBuilders.get(API_INGREDIENTS_ENDPOINT + "/" + name))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
-    @Test
-    @DisplayName("Test find ingredient invalid with wrong name")
-    void testFindByNameFail() throws Exception{
 
-        Mockito.when(ingredientService.findByName(" ")).thenThrow(new IngredientException("ingredient.name.not-found"));
+    @Test
+    @DisplayName("Test find ingredient invalid with name not found")
+    void testFindByNameFail() throws Exception {
+
+        Mockito.when(ingredientService.findByName(" ")).thenThrow(new EntityNotFoundException("ingredient.name.not-found"));
 
         mockMvc.perform(MockMvcRequestBuilders.get(API_INGREDIENTS_ENDPOINT + "/ "))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     @DisplayName("Test modify ingredient quantity with valid name and quantity")
-    void testPatchQuantityOk() throws Exception{
+    void testPatchQuantityOk() throws Exception {
 
         UUID id = UUID.randomUUID();
         String name = "Mozzarella";
@@ -120,7 +121,7 @@ class IngredientControllerIntegrationTest {
         IngredientPatchDto jsonBody = new IngredientPatchDto(quantity);
         IngredientResponseDto responseDto = new IngredientResponseDto(id, name, quantity);
 
-        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)),Mockito.any(IngredientPatchDto.class))).thenReturn(responseDto);
+        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenReturn(responseDto);
 
         mockMvc.perform(MockMvcRequestBuilders.patch(API_INGREDIENTS_ENDPOINT + "/" + name)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -131,12 +132,13 @@ class IngredientControllerIntegrationTest {
 
     @Test
     @DisplayName("Test modify ingredient quantity with invalid name")
-    void testPatchQuantityNameNotFound() throws Exception{
+    void testPatchQuantityNameNotFound() throws Exception {
 
         String name = "Mozzarella";
-           IngredientPatchDto jsonBody = new IngredientPatchDto(3);
 
-        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)),Mockito.any(IngredientPatchDto.class))).thenThrow(new IngredientException("ingredient.name.not-found"));
+        IngredientPatchDto jsonBody = new IngredientPatchDto(3);
+
+        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenThrow(new IngredientException("ingredient.name.not-found"));
 
         mockMvc.perform(MockMvcRequestBuilders.patch(API_INGREDIENTS_ENDPOINT + "/" + name)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -147,7 +149,7 @@ class IngredientControllerIntegrationTest {
 
     @Test
     @DisplayName("Test modify ingredient quantity with no dto")
-    void testPatchQuantityJsonNull() throws Exception{
+    void testPatchQuantityJsonNull() throws Exception {
 
         UUID id = UUID.randomUUID();
         String name = "Mozzarella";
@@ -155,7 +157,7 @@ class IngredientControllerIntegrationTest {
 
         IngredientResponseDto responseDto = new IngredientResponseDto(id, name, quantity);
 
-        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)),Mockito.any(IngredientPatchDto.class))).thenReturn(responseDto);
+        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenReturn(responseDto);
 
         mockMvc.perform(MockMvcRequestBuilders.patch(API_INGREDIENTS_ENDPOINT + "/" + name)
                         .contentType(MediaType.APPLICATION_JSON)

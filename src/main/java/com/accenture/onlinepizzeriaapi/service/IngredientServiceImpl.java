@@ -7,6 +7,7 @@ import com.accenture.onlinepizzeriaapi.repository.IngredientDao;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -48,7 +49,7 @@ public class IngredientServiceImpl implements IngredientService {
 
             ingredient = ingredientDao.findById(idIngredient);
 
-        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new IngredientException(messages.getMessage("ingredient.id.not-found"))));
+        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("ingredient.id.not-found"))));
     }
 
     @Override
@@ -59,7 +60,7 @@ public class IngredientServiceImpl implements IngredientService {
 
         ingredient = ingredientDao.findByName(name);
 
-        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new IngredientException(messages.getMessage("ingredient.name.not-found"))));
+        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("ingredient.name.not-found"))));
     }
 
     /** {@inheritDoc} */
@@ -78,7 +79,7 @@ public class IngredientServiceImpl implements IngredientService {
 
         Optional<Ingredient> optIngredient = ingredientDao.findByName(name);
         if(optIngredient.isEmpty())
-            throw new IngredientException(messages.getMessage("ingredient.id.not-found"));
+            throw new EntityNotFoundException(messages.getMessage("ingredient.id.not-found"));
 
         Ingredient ingredient = optIngredient.get();
         if (patchDto != null && patchDto.quantity() >=1){
