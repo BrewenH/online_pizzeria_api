@@ -230,3 +230,516 @@
 2026-03-25T10:00:01.810+01:00  INFO 25256 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-25T10:00:01.814+01:00  INFO 25256 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-25T10:00:01.826+01:00  INFO 25256 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-25T11:27:23.314+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Starting OnlinePizzeriaApiApplication using Java 25.0.1 with PID 27292 (C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api\target\classes started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:27:23.321+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:27:23.390+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-25T11:27:23.390+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-25T11:27:24.843+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-25T11:27:24.904+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
+2026-03-25T11:27:25.531+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-25T11:27:25.548+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-25T11:27:25.550+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-25T11:27:25.627+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2237 ms
+2026-03-25T11:27:25.844+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-25T11:27:25.944+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-25T11:27:26.419+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-25T11:27:26.452+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-25T11:27:26.708+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3caad1d8
+2026-03-25T11:27:26.709+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-25T11:27:26.745+01:00  WARN 27292 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-25T11:27:26.769+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-25T11:27:27.798+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-25T11:27:27.872+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T11:27:27.957+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-25T11:27:28.315+01:00  WARN 27292 --- [onlinePizzeriaApi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-25T11:27:28.541+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-25T11:27:29.056+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-25T11:27:29.104+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-25T11:27:29.109+01:00  INFO 27292 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Started OnlinePizzeriaApiApplication in 6.363 seconds (process running for 7.055)
+2026-03-25T11:27:34.692+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-25T11:27:34.693+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-25T11:27:34.695+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-25T11:27:34.760+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T11:27:34.778+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] c.a.o.service.IngredientServiceImpl      : Entering in the method that finds ingredient in stock with input name= Mesclun
+2026-03-25T11:27:35.276+01:00 DEBUG 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
+    from
+        ingredient i1_0 
+    where
+        i1_0.name=?
+2026-03-25T11:27:35.277+01:00 TRACE 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [Mesclun]
+2026-03-25T11:27:43.812+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T11:27:43.814+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] c.a.o.service.IngredientServiceImpl      : Entering in the method that finds ingredient in stock with input name= 5188028a-3abe-4f00-a5d1-fcdd875528c2
+2026-03-25T11:27:43.816+01:00 DEBUG 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
+    from
+        ingredient i1_0 
+    where
+        i1_0.name=?
+2026-03-25T11:27:43.816+01:00 TRACE 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [5188028a-3abe-4f00-a5d1-fcdd875528c2]
+2026-03-25T11:27:43.837+01:00 ERROR 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.context.NoSuchMessageException: No message found under code 'ingredient.name.not-found' for locale 'en_US'.] with root cause
+
+org.springframework.context.NoSuchMessageException: No message found under code 'ingredient.name.not-found' for locale 'en_US'.
+	at org.springframework.context.support.AbstractMessageSource.getMessage(AbstractMessageSource.java:162) ~[spring-context-7.0.6.jar:7.0.6]
+	at org.springframework.context.support.MessageSourceAccessor.getMessage(MessageSourceAccessor.java:135) ~[spring-context-7.0.6.jar:7.0.6]
+	at com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl.lambda$findByName$0(IngredientServiceImpl.java:63) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl.findByName(IngredientServiceImpl.java:63) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.6.jar:7.0.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.6.jar:7.0.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.6.jar:7.0.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.6.jar:7.0.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.6.jar:7.0.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.6.jar:7.0.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.6.jar:7.0.6]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.6.jar:7.0.6]
+	at com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl$$SpringCGLIB$$0.findByName(<generated>) ~[classes/:na]
+	at com.accenture.onlinepizzeriaapi.controller.impl.IngredientController.findByName(IngredientController.java:42) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:633) ~[jakarta.servlet-api-6.1.0.jar:6.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.6.jar:7.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723) ~[jakarta.servlet-api-6.1.0.jar:6.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:235) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:371) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:198) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.4.jar:7.0.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.6.jar:7.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-03-25T11:27:49.212+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-10] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/id/{id} with success
+2026-03-25T11:27:49.214+01:00  INFO 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-10] c.a.o.service.IngredientServiceImpl      : Entering in the method that finds ingredient in stock with input id= 5188028a-3abe-4f00-a5d1-fcdd875528c2
+2026-03-25T11:27:49.228+01:00 DEBUG 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-10] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
+    from
+        ingredient i1_0 
+    where
+        i1_0.id=?
+2026-03-25T11:27:49.229+01:00 TRACE 27292 --- [onlinePizzeriaApi] [http-nio-9999-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [5188028a-3abe-4f00-a5d1-fcdd875528c2]
+2026-03-25T11:27:54.793+01:00  INFO 27292 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-25T11:27:54.801+01:00  INFO 27292 --- [onlinePizzeriaApi] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-25T11:27:54.805+01:00  INFO 27292 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-25T11:27:54.809+01:00  INFO 27292 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-25T11:27:54.816+01:00  INFO 27292 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-25T11:37:26.187+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 26296 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:37:26.189+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:37:28.865+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:37:28.866+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:37:28.869+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T11:37:28.900+01:00  INFO 26296 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.253 seconds (process running for 4.976)
+2026-03-25T11:37:28.908+01:00  WARN 26296 --- [onlinePizzeriaApi] [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener] to prepare test instance [com.accenture.onlinepizzeriaapi.controller.impl.IngredientControllerIntegrationTest@3e595da3]
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.accenture.onlinepizzeriaapi.controller.impl.IngredientControllerIntegrationTest': Unsatisfied dependency expressed through field 'objectMapper': No qualifying bean of type 'org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:767) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:748) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1446) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:402) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:157) ~[spring-test-7.0.6.jar:7.0.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111) ~[spring-test-7.0.6.jar:7.0.6]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-7.0.6.jar:7.0.6]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:210) ~[spring-test-7.0.6.jar:7.0.6]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:93) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:41) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:40) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:67) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at com.intellij.junit6.JUnit6IdeaTestRunner.startRunnerWithArgs(JUnit6IdeaTestRunner.java:67) ~[junit6-rt.jar:na]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:na]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:na]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) ~[junit-rt.jar:na]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) ~[junit-rt.jar:na]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2297) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1725) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.6.jar:7.0.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:764) ~[spring-beans-7.0.6.jar:7.0.6]
+	... 84 common frames omitted
+
+2026-03-25T11:39:11.476+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 31440 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:39:11.478+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:39:14.126+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:39:14.127+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:39:14.129+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:39:14.161+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.193 seconds (process running for 4.905)
+2026-03-25T11:39:14.513+01:00  INFO 31440 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint /POST/ingredients
+2026-03-25T11:41:30.129+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 26992 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:41:30.130+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:41:32.772+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:41:32.772+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:41:32.775+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:41:32.805+01:00  INFO 26992 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.191 seconds (process running for 4.673)
+2026-03-25T11:42:07.212+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 27844 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:42:07.213+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:42:09.621+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:42:09.622+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:42:09.624+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:42:09.661+01:00  INFO 27844 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.892 seconds (process running for 4.401)
+2026-03-25T11:42:59.688+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 8092 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:42:59.689+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:43:02.136+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:43:02.136+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:43:02.138+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:43:02.181+01:00  INFO 8092 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.899 seconds (process running for 4.382)
+2026-03-25T11:47:40.807+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 30268 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:47:40.808+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:47:43.391+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:47:43.391+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:47:43.393+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-03-25T11:47:43.427+01:00  INFO 30268 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.149 seconds (process running for 4.951)
+2026-03-25T11:48:11.584+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 26420 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:48:11.587+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:48:14.848+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:48:14.848+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:48:14.850+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:48:14.897+01:00  INFO 26420 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.968 seconds (process running for 5.402)
+2026-03-25T11:50:16.960+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 27132 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:50:16.962+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:50:19.371+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:50:19.371+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:50:19.373+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:50:19.409+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.921 seconds (process running for 4.421)
+2026-03-25T11:50:19.528+01:00  INFO 27132 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients with success
+2026-03-25T11:54:17.290+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 17912 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:54:17.293+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:54:20.348+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:54:20.349+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:54:20.352+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T11:54:20.387+01:00  INFO 17912 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.601 seconds (process running for 5.557)
+2026-03-25T11:54:52.751+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 24172 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:54:52.752+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:54:55.362+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:54:55.363+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:54:55.365+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:54:55.409+01:00  INFO 24172 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.07 seconds (process running for 4.58)
+2026-03-25T11:55:55.120+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 27492 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:55:55.121+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:55:57.410+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:55:57.411+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:55:57.413+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:55:57.453+01:00  INFO 27492 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.746 seconds (process running for 4.139)
+2026-03-25T11:56:50.486+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 31380 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:56:50.487+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:56:52.789+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:56:52.790+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:56:52.792+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:56:52.827+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.793 seconds (process running for 4.165)
+2026-03-25T11:56:53.019+01:00  INFO 31380 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T11:58:27.600+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 23388 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:58:27.602+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:58:30.089+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:58:30.089+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:58:30.092+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T11:58:30.126+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.944 seconds (process running for 4.389)
+2026-03-25T11:58:30.267+01:00  INFO 23388 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T11:59:09.174+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 3152 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T11:59:09.176+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T11:59:11.592+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T11:59:11.592+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T11:59:11.595+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T11:59:11.632+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.898 seconds (process running for 4.381)
+2026-03-25T11:59:11.765+01:00  INFO 3152 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:00:00.658+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 10680 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:00:00.660+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:00:03.428+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:00:03.428+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:00:03.430+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T12:00:03.475+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.239 seconds (process running for 5.168)
+2026-03-25T12:00:03.654+01:00  INFO 10680 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:00:13.125+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 24248 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:00:13.126+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:00:16.803+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:00:16.804+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:00:16.807+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:00:16.869+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 4.406 seconds (process running for 6.908)
+2026-03-25T12:00:17.071+01:00  INFO 24248 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:00:41.516+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 29824 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:00:41.518+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:00:44.492+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:00:44.493+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:00:44.496+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:00:44.541+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.599 seconds (process running for 5.39)
+2026-03-25T12:00:44.670+01:00  INFO 29824 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:01:25.908+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 2568 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:01:25.910+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:01:28.420+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:01:28.421+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:01:28.423+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T12:01:28.470+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.016 seconds (process running for 4.494)
+2026-03-25T12:01:28.650+01:00  INFO 2568 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:01:55.127+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 27924 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:01:55.128+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:01:58.000+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:01:58.001+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:01:58.005+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-03-25T12:01:58.052+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.423 seconds (process running for 4.963)
+2026-03-25T12:01:58.215+01:00  INFO 27924 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:03:05.463+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 25144 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:03:05.465+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:03:08.009+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:03:08.009+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:03:08.011+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T12:03:08.047+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.018 seconds (process running for 4.464)
+2026-03-25T12:03:08.267+01:00  INFO 25144 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:04:34.255+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 28688 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:04:34.256+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:04:38.146+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:04:38.147+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:04:38.150+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T12:04:38.197+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 4.468 seconds (process running for 6.273)
+2026-03-25T12:04:38.421+01:00  INFO 28688 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:05:53.982+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 31140 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:05:53.984+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:05:56.381+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:05:56.381+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:05:56.384+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:05:56.417+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.848 seconds (process running for 4.333)
+2026-03-25T12:05:56.607+01:00  INFO 31140 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:06:13.501+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 15600 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:06:13.502+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:06:16.383+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:06:16.384+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:06:16.387+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:06:16.435+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.493 seconds (process running for 5.491)
+2026-03-25T12:06:16.600+01:00  INFO 15600 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:06:54.372+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 17312 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:06:54.374+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:06:57.626+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:06:57.626+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:06:57.627+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-03-25T12:06:57.653+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.747 seconds (process running for 28.832)
+2026-03-25T12:06:57.725+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients with success
+2026-03-25T12:06:57.838+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:06:57.990+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint /POST/ingredients
+2026-03-25T12:06:58.013+01:00  INFO 17312 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T12:22:54.511+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 25544 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:22:54.513+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:22:57.034+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:22:57.034+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:22:57.037+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:22:57.074+01:00  INFO 25544 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.994 seconds (process running for 4.503)
+2026-03-25T12:22:57.268+01:00  WARN 25544 --- [onlinePizzeriaApi] [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-03-25T12:23:29.938+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 24312 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:23:29.941+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:23:33.683+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:23:33.683+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:23:33.687+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T12:23:33.747+01:00  INFO 24312 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 4.687 seconds (process running for 7.598)
+2026-03-25T12:23:34.072+01:00  WARN 24312 --- [onlinePizzeriaApi] [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'name' for method parameter type String is not present]
+2026-03-25T12:24:53.070+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 31124 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:24:53.072+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:24:55.621+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:24:55.622+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:24:55.626+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-03-25T12:24:55.673+01:00  INFO 31124 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.043 seconds (process running for 4.59)
+2026-03-25T12:24:55.969+01:00  WARN 31124 --- [onlinePizzeriaApi] [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'name' for method parameter type String is not present]
+2026-03-25T12:25:33.782+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 24112 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:25:33.783+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:25:36.480+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:25:36.480+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:25:36.484+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-03-25T12:25:36.537+01:00  INFO 24112 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 3.2 seconds (process running for 4.834)
+2026-03-25T12:25:36.782+01:00  WARN 24112 --- [onlinePizzeriaApi] [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'name' for method parameter type String is not present]
+2026-03-25T12:30:33.817+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 31612 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T12:30:33.818+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T12:30:36.239+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T12:30:36.239+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T12:30:36.242+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T12:30:36.273+01:00  INFO 31612 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 2.884 seconds (process running for 4.368)
+2026-03-25T13:28:27.215+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 29504 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T13:28:27.218+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T13:28:32.378+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T13:28:32.379+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T13:28:32.381+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-03-25T13:28:32.435+01:00  INFO 29504 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 6.263 seconds (process running for 10.502)
+2026-03-25T13:29:34.958+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 28132 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T13:29:34.962+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T13:29:38.541+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T13:29:38.542+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T13:29:38.545+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T13:29:38.582+01:00  INFO 28132 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 4.414 seconds (process running for 7.065)
+2026-03-25T13:32:47.405+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 17720 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T13:32:47.407+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T13:32:51.691+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T13:32:51.691+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T13:32:51.696+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T13:32:51.760+01:00  INFO 17720 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 5.488 seconds (process running for 8.759)
+2026-03-25T13:33:39.307+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 29880 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T13:33:39.310+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T13:33:43.329+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T13:33:43.330+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T13:33:43.334+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-03-25T13:33:43.390+01:00  INFO 29880 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 4.724 seconds (process running for 7.027)
+2026-03-25T13:34:01.958+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Starting IngredientControllerIntegrationTest using Java 25.0.1 with PID 27080 (started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-25T13:34:01.965+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-03-25T13:34:07.599+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-25T13:34:07.601+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-03-25T13:34:07.607+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 6 ms
+2026-03-25T13:34:07.689+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] .c.i.IngredientControllerIntegrationTest : Started IngredientControllerIntegrationTest in 7.302 seconds (process running for 11.318)
+2026-03-25T13:34:08.764+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients with success
+2026-03-25T13:34:08.962+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success
+2026-03-25T13:34:09.125+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint /POST/ingredients
+2026-03-25T13:34:09.176+01:00  INFO 27080 --- [onlinePizzeriaApi] [main] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients/{name} with success

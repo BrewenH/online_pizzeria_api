@@ -7,7 +7,6 @@ import com.accenture.onlinepizzeriaapi.repository.IngredientDao;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -52,6 +51,17 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new IngredientException(messages.getMessage("ingredient.id.not-found"))));
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public IngredientResponseDto findByName(String name) {
+        log.info("Entering in the method that finds ingredient in stock with input name= {}", name);
+        Optional<Ingredient> ingredient = null;
+
+        ingredient = ingredientDao.findByName(name);
+
+        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new IngredientException(messages.getMessage("ingredient.name.not-found"))));
+    }
+
     /** {@inheritDoc} */
     @Override
     public IngredientResponseDto addIngredient(IngredientRequestDto requestDto) throws IngredientException{
@@ -63,10 +73,10 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public IngredientResponseDto patchIngredient(UUID idIngredient, IngredientPatchDto patchDto) {
-        log.info("Entering in the method that updates ingredient quantity in stock with input id= {} and dto={}", idIngredient, patchDto);
+    public IngredientResponseDto patchIngredient(String name, IngredientPatchDto patchDto) {
+        log.info("Entering in the method that updates ingredient quantity in stock with input id= {} and dto={}", name, patchDto);
 
-        Optional<Ingredient> optIngredient = ingredientDao.findById(idIngredient);
+        Optional<Ingredient> optIngredient = ingredientDao.findByName(name);
         if(optIngredient.isEmpty())
             throw new IngredientException(messages.getMessage("ingredient.id.not-found"));
 
