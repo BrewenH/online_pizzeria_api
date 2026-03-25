@@ -1,5 +1,6 @@
 package com.accenture.onlinepizzeriaapi.service;
 
+import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
 
@@ -22,9 +23,7 @@ public interface IngredientService {
      */
     IngredientResponseDto addIngredient(IngredientRequestDto requestDto);
 
-    void deleteIngredient(UUID idIngredient);
-
-    IngredientResponseDto patchIngredient(UUID idIngredient, IngredientRequestDto requestDto);
+    IngredientResponseDto patchIngredient(UUID idIngredient, IngredientPatchDto patchDto);
 
     void checkIngredient(IngredientRequestDto requestDto);
 }

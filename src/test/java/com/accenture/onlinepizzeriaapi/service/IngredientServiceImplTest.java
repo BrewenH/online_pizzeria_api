@@ -1,10 +1,13 @@
 package com.accenture.onlinepizzeriaapi.service;
 
+import com.accenture.onlinepizzeriaapi.exception.IngredientException;
 import com.accenture.onlinepizzeriaapi.mapper.IngredientMapper;
 import com.accenture.onlinepizzeriaapi.model.Ingredient;
 import com.accenture.onlinepizzeriaapi.repository.IngredientDao;
+import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -13,8 +16,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.support.MessageSourceAccessor;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,7 +50,7 @@ class IngredientServiceImplTest {
     class AddIngredientTests {
 
         @Test
-        @DisplayName("Add ingredient with valid input")
+        @DisplayName("Add ingredient OK")
         void testAddIngredientSuccess() {
 
             IngredientService spy = Mockito.spy(service);
@@ -77,6 +83,13 @@ class IngredientServiceImplTest {
 
             Mockito.verify(spy, Mockito.times(1)).checkIngredient(Mockito.any(IngredientRequestDto.class));
         }
+
+        @Test
+        @DisplayName("Invalid (null)")
+        void testAddIngredientNull() {
+            assertThrows(IngredientException.class, () -> service.addIngredient(null));
+        }
+
     }
 
     @Nested
@@ -118,7 +131,7 @@ class IngredientServiceImplTest {
 
 
         @Test
-        @DisplayName("findById OK")
+        @DisplayName("find by id OK")
         void testFindByIdSuccess() {
 
             UUID id = UUID.randomUUID();
@@ -127,7 +140,7 @@ class IngredientServiceImplTest {
             Ingredient ingredientEntity = new Ingredient(name, quantity);
             IngredientResponseDto expectedResponse = new IngredientResponseDto(id, name, quantity);
 
-            Mockito.when(ingredientDao.getReferenceById(Mockito.any(UUID.class))).thenReturn(ingredientEntity);
+            Mockito.when(ingredientDao.findById(Mockito.any(UUID.class))).thenReturn(Optional.of(ingredientEntity));
 
             Mockito.when(ingredientMapper.toIngredientResponseDto(Mockito.any(Ingredient.class))).thenReturn(expectedResponse);
 
@@ -142,6 +155,65 @@ class IngredientServiceImplTest {
                 Assertions.assertEquals(name, returnedResponse.name(), "Name should be the same as expected");
                 Assertions.assertEquals(quantity, returnedResponse.quantity(), "Quantity should be the same as expected");
             });
+        }
+
+        @Test
+        @DisplayName("by Id: not found")
+        void testFindByIdNotFound() {
+            Assertions.assertThrows(IngredientException.class, () -> service.findById(UUID.randomUUID()));
+        }
+    }
+
+    @Nested
+    @DisplayName("Patch ingredients methods")
+    class PatchIngredientTests {
+
+        @Test
+        @DisplayName("Patch ingredient quantity OK")
+        void testPatchQuantitySuccess() {
+
+            UUID id = UUID.randomUUID();
+            String name = "Mozzarella";
+            int newQuantity = 1;
+
+            IngredientPatchDto patchDto = new IngredientPatchDto(newQuantity);
+            Ingredient ingredientEntity = new Ingredient(name, 0);
+            IngredientResponseDto expectedResponseDto = new IngredientResponseDto(id, name, newQuantity);
+
+            Mockito.when(ingredientDao.findById(Mockito.any(UUID.class))).thenReturn(Optional.of(ingredientEntity));
+            Mockito.when(ingredientDao.save(Mockito.any(Ingredient.class))).thenReturn(ingredientEntity);
+            Mockito.when(ingredientMapper.toIngredientResponseDto(Mockito.any(Ingredient.class))).thenReturn(expectedResponseDto);
+
+            IngredientResponseDto returnedResponseDto = service.patchIngredient(id, patchDto);
+
+            Assertions.assertAll(
+                    () -> Assertions.assertNotNull(returnedResponseDto, "Dto response should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponseDto.id(), "Id should not be null"),
+                    () -> Assertions.assertNotNull(returnedResponseDto.name(), "Name should not be null"),
+                    () -> Assertions.assertTrue(returnedResponseDto.quantity() >= 0, "Quantity should not be negative"),
+                    () -> Assertions.assertEquals(expectedResponseDto.id(), returnedResponseDto.id(), "Id should be the same as expected"),
+                    () -> Assertions.assertEquals(expectedResponseDto.name(), returnedResponseDto.name(), "Name should be the same as expected"),
+                    () -> Assertions.assertEquals(expectedResponseDto.quantity(), returnedResponseDto.quantity(), "Quantity should be the same as expected")
+            );
+        }
+
+        @Test
+        @DisplayName("Invalid (id not found)")
+        void testPatchQuantityIdNotFound() {
+
+            UUID id = UUID.randomUUID();
+            IngredientPatchDto patchDto = new IngredientPatchDto(2);
+            assertThrows(IngredientException.class, () -> service.patchIngredient(id,patchDto));
+        }
+
+        @Test
+        @DisplayName("Invalid (quantity negative)")
+        void testPatchIngredientSizeInvalid(){
+            UUID id = UUID.randomUUID();
+            IngredientPatchDto patchDto = new IngredientPatchDto(-1);
+
+            assertThrows(IngredientException.class, () -> service.patchIngredient(id, patchDto));
+
         }
     }
 }
