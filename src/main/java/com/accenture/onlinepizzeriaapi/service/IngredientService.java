@@ -17,13 +17,15 @@ public interface IngredientService {
 
     IngredientResponseDto findById(UUID id);
 
+    IngredientResponseDto findByName(String name);
+
     /**
      * @param requestDto
      * @return IngredientResponseDto
      */
     IngredientResponseDto addIngredient(IngredientRequestDto requestDto);
 
-    IngredientResponseDto patchIngredient(UUID idIngredient, IngredientPatchDto patchDto);
+    IngredientResponseDto patchIngredient(String name, IngredientPatchDto patchDto);
 
     void checkIngredient(IngredientRequestDto requestDto);
 }

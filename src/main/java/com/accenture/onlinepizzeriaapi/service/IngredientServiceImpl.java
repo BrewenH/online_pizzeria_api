@@ -49,7 +49,18 @@ public class IngredientServiceImpl implements IngredientService {
 
             ingredient = ingredientDao.findById(idIngredient);
 
-        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new IngredientException(messages.getMessage("ingredient.id.not-found"))));
+        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("ingredient.id.not-found"))));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public IngredientResponseDto findByName(String name) {
+        log.info("Entering in the method that finds ingredient in stock with input name= {}", name);
+        Optional<Ingredient> ingredient = null;
+
+        ingredient = ingredientDao.findByName(name);
+
+        return ingredientMapper.toIngredientResponseDto(ingredient.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("ingredient.name.not-found"))));
     }
 
     /** {@inheritDoc} */
@@ -63,12 +74,12 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public IngredientResponseDto patchIngredient(UUID idIngredient, IngredientPatchDto patchDto) {
-        log.info("Entering in the method that updates ingredient quantity in stock with input id= {} and dto={}", idIngredient, patchDto);
+    public IngredientResponseDto patchIngredient(String name, IngredientPatchDto patchDto) {
+        log.info("Entering in the method that updates ingredient quantity in stock with input id= {} and dto={}", name, patchDto);
 
-        Optional<Ingredient> optIngredient = ingredientDao.findById(idIngredient);
+        Optional<Ingredient> optIngredient = ingredientDao.findByName(name);
         if(optIngredient.isEmpty())
-            throw new IngredientException(messages.getMessage("ingredient.id.not-found"));
+            throw new EntityNotFoundException(messages.getMessage("ingredient.id.not-found"));
 
         Ingredient ingredient = optIngredient.get();
         if (patchDto != null && patchDto.quantity() >=1){

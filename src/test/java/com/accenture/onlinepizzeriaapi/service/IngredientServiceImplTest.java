@@ -158,9 +158,43 @@ class IngredientServiceImplTest {
         }
 
         @Test
+        @DisplayName("find by name OK")
+        void testFindByNameSuccess() {
+
+            UUID id = UUID.randomUUID();
+            String name = "Mozzarella";
+            int quantity = 1;
+            Ingredient ingredientEntity = new Ingredient(name, quantity);
+            IngredientResponseDto expectedResponse = new IngredientResponseDto(id, name, quantity);
+
+            Mockito.when(ingredientDao.findByName(Mockito.any(String.class))).thenReturn(Optional.of(ingredientEntity));
+
+            Mockito.when(ingredientMapper.toIngredientResponseDto(Mockito.any(Ingredient.class))).thenReturn(expectedResponse);
+
+            IngredientResponseDto returnedResponse = service.findByName("Mozzarella");
+
+            Assertions.assertAll(() -> {
+                Assertions.assertNotNull(returnedResponse, "DtoResponse should not be null");
+                Assertions.assertNotNull(returnedResponse.id(), "Id should not be null");
+                Assertions.assertNotNull(returnedResponse.name(), "Name should not be null");
+                Assertions.assertTrue(returnedResponse.quantity() >= 0, "Quantity should not be negative");
+                Assertions.assertEquals(id, returnedResponse.id(), "Id should be the same as expected");
+                Assertions.assertEquals(name, returnedResponse.name(), "Name should be the same as expected");
+                Assertions.assertEquals(quantity, returnedResponse.quantity(), "Quantity should be the same as expected");
+            });
+        }
+
+
+        @Test
         @DisplayName("by Id: not found")
         void testFindByIdNotFound() {
             Assertions.assertThrows(IngredientException.class, () -> service.findById(UUID.randomUUID()));
+        }
+
+        @Test
+        @DisplayName("by name: not found")
+        void testFindByNameNotFound() {
+            Assertions.assertThrows(IngredientException.class, () -> service.findByName("Mozzarella"));
         }
     }
 
@@ -180,11 +214,11 @@ class IngredientServiceImplTest {
             Ingredient ingredientEntity = new Ingredient(name, 0);
             IngredientResponseDto expectedResponseDto = new IngredientResponseDto(id, name, newQuantity);
 
-            Mockito.when(ingredientDao.findById(Mockito.any(UUID.class))).thenReturn(Optional.of(ingredientEntity));
+            Mockito.when(ingredientDao.findByName(Mockito.any(String.class))).thenReturn(Optional.of(ingredientEntity));
             Mockito.when(ingredientDao.save(Mockito.any(Ingredient.class))).thenReturn(ingredientEntity);
             Mockito.when(ingredientMapper.toIngredientResponseDto(Mockito.any(Ingredient.class))).thenReturn(expectedResponseDto);
 
-            IngredientResponseDto returnedResponseDto = service.patchIngredient(id, patchDto);
+            IngredientResponseDto returnedResponseDto = service.patchIngredient(name, patchDto);
 
             Assertions.assertAll(
                     () -> Assertions.assertNotNull(returnedResponseDto, "Dto response should not be null"),
@@ -198,22 +232,19 @@ class IngredientServiceImplTest {
         }
 
         @Test
-        @DisplayName("Invalid (id not found)")
-        void testPatchQuantityIdNotFound() {
+        @DisplayName("Invalid (name not found)")
+        void testPatchQuantityNameNotFound() {
 
-            UUID id = UUID.randomUUID();
             IngredientPatchDto patchDto = new IngredientPatchDto(2);
-            assertThrows(IngredientException.class, () -> service.patchIngredient(id,patchDto));
+            assertThrows(IngredientException.class, () -> service.patchIngredient(" ",patchDto));
         }
 
         @Test
         @DisplayName("Invalid (quantity negative)")
         void testPatchIngredientSizeInvalid(){
-            UUID id = UUID.randomUUID();
             IngredientPatchDto patchDto = new IngredientPatchDto(-1);
 
-            assertThrows(IngredientException.class, () -> service.patchIngredient(id, patchDto));
-
+            assertThrows(IngredientException.class, () -> service.patchIngredient("Mozzarella", patchDto));
         }
     }
 }
