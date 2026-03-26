@@ -23,19 +23,29 @@ public class IngredientController implements IngredientApi {
 
     private final IngredientService ingredientService;
 
+    /** {@inheritDoc} */
     @Override
     public ResponseEntity<List<IngredientResponseDto>> findAll() {
 
-        log.info("Access to endpoint GET/ingredients with success");
+        log.info("Access to endpoint GET/ingredients");
         return ResponseEntity.ok(ingredientService.findAll());
     }
 
+    /** {@inheritDoc} */
     @Override
     public ResponseEntity<IngredientResponseDto> findById(UUID idIngredient) {
-        log.info("Access to endpoint GET/ingredients/{id} with success");
+        log.info("Access to endpoint GET/ingredients/id/{id}");
         return ResponseEntity.ok(ingredientService.findById(idIngredient));
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public ResponseEntity<IngredientResponseDto> findByName(String name) {
+        log.info("Access to endpoint GET/ingredients/{name}");
+        return ResponseEntity.ok(ingredientService.findByName(name));
+    }
+
+    /** {@inheritDoc} */
     @Override
     public ResponseEntity<Void> addIngredient(IngredientRequestDto requestDto) {
         log.info("Access to endpoint /POST/ingredients");
@@ -50,9 +60,11 @@ public class IngredientController implements IngredientApi {
         return ResponseEntity.created(location).build();
     }
 
+    /** {@inheritDoc} */
     @Override
-    public ResponseEntity<IngredientResponseDto> patchIngredient(UUID idIngredient, IngredientPatchDto patchDto) {
-        IngredientResponseDto responseDto = ingredientService.patchIngredient(idIngredient,patchDto);
+    public ResponseEntity<IngredientResponseDto> patchIngredient(String ingredientName, IngredientPatchDto patchDto) {
+        log.info("Access to endpoint PATCH/ingredients/{name}");
+        IngredientResponseDto responseDto = ingredientService.patchIngredient(ingredientName,patchDto);
         return ResponseEntity.ok(responseDto);
     }
 }
