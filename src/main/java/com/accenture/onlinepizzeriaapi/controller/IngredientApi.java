@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,7 +67,7 @@ public interface IngredientApi {
     @ApiResponse(responseCode = "400", description = "Invalid request",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
     @PostMapping
-    ResponseEntity<Void> addIngredient(@RequestBody IngredientRequestDto requestDto);
+    ResponseEntity<Void> addIngredient(@RequestBody @Valid IngredientRequestDto requestDto);
 
     /**
      *<p>PatchIngredient methode handles the modification of an ingredient for restocking </p>

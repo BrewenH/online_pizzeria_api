@@ -434,3 +434,195 @@
     drop table if exists pizza_ingredients cascade
 2026-03-26T11:08:27.283+01:00  INFO 20284 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-26T11:08:27.285+01:00  INFO 20284 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-26T11:13:19.011+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Starting OnlinePizzeriaApiApplication using Java 25.0.1 with PID 23472 (C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api\target\classes started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-26T11:13:19.017+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T11:13:19.134+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-26T11:13:19.135+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-26T11:13:21.600+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T11:13:21.782+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 153 ms. Found 3 JPA repository interfaces.
+2026-03-26T11:13:23.788+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-26T11:13:23.838+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-26T11:13:23.839+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-26T11:13:24.012+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4876 ms
+2026-03-26T11:13:24.530+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-26T11:13:24.792+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-26T11:13:26.317+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T11:13:26.400+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-26T11:13:27.028+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6104ad0
+2026-03-26T11:13:27.032+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-26T11:13:27.161+01:00  WARN 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T11:13:27.236+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T11:13:29.688+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T11:13:29.852+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    create table ingredient (
+        id uuid not null,
+        name varchar(255),
+        quantity integer not null,
+        primary key (id)
+    )
+2026-03-26T11:13:29.939+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    create table orders (
+        id uuid not null,
+        date date,
+        status smallint check ((status between 0 and 3)),
+        total_price float(53),
+        primary key (id)
+    )
+2026-03-26T11:13:29.949+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    create table pizza (
+        id uuid not null,
+        name varchar(255),
+        price float(53),
+        removed_from_menu boolean,
+        size smallint check ((size between 0 and 2)),
+        pizzas_id uuid,
+        primary key (id)
+    )
+2026-03-26T11:13:29.963+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    create table pizza_ingredients (
+        pizza_id uuid not null,
+        ingredient_id uuid not null
+    )
+2026-03-26T11:13:29.972+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pizza 
+       add constraint FKdy4v1k7ovlw06qndw0u9l4nwh 
+       foreign key (pizzas_id) 
+       references orders
+2026-03-26T11:13:29.987+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKk4ujfrxw0ka1l7a0xf8xoppf2 
+       foreign key (ingredient_id) 
+       references ingredient
+2026-03-26T11:13:29.993+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists pizza_ingredients 
+       add constraint FKbmkay60qrmenad7mc32udtvab 
+       foreign key (pizza_id) 
+       references pizza
+2026-03-26T11:13:30.003+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T11:13:30.215+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-26T11:13:31.202+01:00  WARN 23472 --- [onlinePizzeriaApi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T11:13:31.715+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-26T11:13:33.342+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-26T11:13:33.470+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-26T11:13:33.484+01:00  INFO 23472 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Started OnlinePizzeriaApiApplication in 15.586 seconds (process running for 17.751)
+2026-03-26T11:14:00.332+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-26T11:14:00.333+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-26T11:14:00.335+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-26T11:14:00.481+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] c.a.o.c.impl.IngredientController        : Access to endpoint /POST/ingredients
+2026-03-26T11:14:00.491+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] c.a.o.service.IngredientServiceImpl      : Entering in the method that creates a new ingredient in stock with this request Dto =IngredientRequestDto[name=null, quantity=-2]
+2026-03-26T11:14:00.530+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        ingredient
+        (name, quantity, id) 
+    values
+        (?, ?, ?)
+2026-03-26T11:14:00.532+01:00 TRACE 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [null]
+2026-03-26T11:14:00.533+01:00 TRACE 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [-2]
+2026-03-26T11:14:00.534+01:00 TRACE 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:UUID) <- [46658a47-2ca6-4649-9174-7782d2e87c9f]
+2026-03-26T11:14:07.136+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] c.a.o.c.impl.IngredientController        : Access to endpoint GET/ingredients
+2026-03-26T11:14:07.139+01:00  INFO 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] c.a.o.service.IngredientServiceImpl      : Entering in the method that lists all ingredients in stock
+2026-03-26T11:14:07.262+01:00 DEBUG 23472 --- [onlinePizzeriaApi] [http-nio-9999-exec-3] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
+    from
+        ingredient i1_0
+2026-03-26T11:15:40.485+01:00  INFO 23472 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-26T11:15:40.511+01:00  INFO 23472 --- [onlinePizzeriaApi] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-26T11:15:40.521+01:00  INFO 23472 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T11:15:40.525+01:00  INFO 23472 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-26T11:15:40.528+01:00  INFO 23472 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-26T11:15:51.142+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Starting OnlinePizzeriaApiApplication using Java 25.0.1 with PID 25396 (C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api\target\classes started by murciana.le.bouedec in C:\Users\murciana.le.bouedec\IdeaProjects\online_pizzeria_api)
+2026-03-26T11:15:51.145+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-03-26T11:15:51.196+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-26T11:15:51.196+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-26T11:15:52.727+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T11:15:52.856+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 3 JPA repository interfaces.
+2026-03-26T11:15:54.020+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9999 (http)
+2026-03-26T11:15:54.043+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-26T11:15:54.044+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-26T11:15:54.172+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2974 ms
+2026-03-26T11:15:54.501+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-26T11:15:54.684+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-03-26T11:15:55.811+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T11:15:55.875+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-26T11:15:56.166+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5f1385e6
+2026-03-26T11:15:56.169+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-26T11:15:56.235+01:00  WARN 25396 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T11:15:56.274+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/mydb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: mydb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T11:15:57.815+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T11:15:57.927+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T11:15:58.032+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-26T11:15:58.404+01:00  WARN 25396 --- [onlinePizzeriaApi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T11:15:58.688+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-26T11:15:59.213+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5432/mydb'
+2026-03-26T11:15:59.260+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9999 (http) with context path '/'
+2026-03-26T11:15:59.267+01:00  INFO 25396 --- [onlinePizzeriaApi] [restartedMain] c.a.o.OnlinePizzeriaApiApplication       : Started OnlinePizzeriaApiApplication in 8.633 seconds (process running for 9.751)
+2026-03-26T11:16:40.942+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-26T11:16:40.942+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-26T11:16:40.945+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-26T11:16:41.304+01:00  WARN 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Void> com.accenture.onlinepizzeriaapi.controller.impl.IngredientController.addIngredient(com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto) with 2 errors: [Field error in object 'ingredientRequestDto' on field 'name': rejected value [null]; codes [NotBlank.ingredientRequestDto.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [ingredientRequestDto.name,name]; arguments []; default message [name]]; default message [ingredient.name.null]] [Field error in object 'ingredientRequestDto' on field 'quantity': rejected value [-2]; codes [Min.ingredientRequestDto.quantity,Min.quantity,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [ingredientRequestDto.quantity,quantity]; arguments []; default message [quantity],0]; default message [ingredient.quantity.minimum-invalid]] ]
+2026-03-26T11:17:23.145+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] c.a.o.c.impl.IngredientController        : Access to endpoint /POST/ingredients
+2026-03-26T11:17:23.158+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] c.a.o.service.IngredientServiceImpl      : Entering in the method that creates a new ingredient in stock with this request Dto =IngredientRequestDto[name=la, quantity=2]
+2026-03-26T11:17:23.239+01:00 DEBUG 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        ingredient
+        (name, quantity, id) 
+    values
+        (?, ?, ?)
+2026-03-26T11:17:23.246+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [la]
+2026-03-26T11:17:23.246+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [2]
+2026-03-26T11:17:23.246+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:UUID) <- [d694f936-2c53-4589-81d6-97fadd255cae]
+2026-03-26T11:17:33.608+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] c.a.o.c.impl.IngredientController        : Access to endpoint PATCH/ingredients/{name}
+2026-03-26T11:17:33.609+01:00  INFO 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] c.a.o.service.IngredientServiceImpl      : Entering in the method that updates ingredient quantity in stock with input name= la and dto=IngredientPatchDto[quantity=6]
+2026-03-26T11:17:33.966+01:00 DEBUG 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
+    from
+        ingredient i1_0 
+    where
+        i1_0.name=?
+2026-03-26T11:17:33.967+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [la]
+2026-03-26T11:17:33.991+01:00 DEBUG 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.SQL                        : 
+    update
+        ingredient 
+    set
+        name=?,
+        quantity=? 
+    where
+        id=?
+2026-03-26T11:17:33.992+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [la]
+2026-03-26T11:17:33.992+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [6]
+2026-03-26T11:17:33.992+01:00 TRACE 25396 --- [onlinePizzeriaApi] [http-nio-9999-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (3:UUID) <- [d694f936-2c53-4589-81d6-97fadd255cae]
+2026-03-26T11:17:39.345+01:00  INFO 25396 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-26T11:17:39.353+01:00  INFO 25396 --- [onlinePizzeriaApi] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-26T11:17:39.357+01:00  INFO 25396 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T11:17:39.361+01:00  INFO 25396 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-26T11:17:39.368+01:00  INFO 25396 --- [onlinePizzeriaApi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
