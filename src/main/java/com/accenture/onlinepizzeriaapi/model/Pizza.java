@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Pizza is the class that we use to manage pizza objects in database
+ * @author brewen.huiban
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,8 +21,20 @@ public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    /**
+     * The public name of a pizza
+     */
     String name;
+
+    /**
+     * The public size of a pizza
+     */
     Size size;
+
+    /**
+     * The public price of a pizza
+     */
     Double price;
 
     @ManyToMany
