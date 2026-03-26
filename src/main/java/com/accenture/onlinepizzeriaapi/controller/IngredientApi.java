@@ -29,10 +29,17 @@ public interface IngredientApi {
     @ApiResponse(responseCode = "200", description = "Ingredient found")
     @ApiResponse(responseCode = "404", description = "Ingredient not found",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     ResponseEntity<IngredientResponseDto> findById(@Parameter(description = "Ingredient id not found", required = true) @PathVariable("id") UUID idIngredient);
 
-    @Operation(summary = "Add a new district")
+    @Operation(summary = "Get an ingredient by its name")
+    @ApiResponse(responseCode = "200", description = "Ingredient found")
+    @ApiResponse(responseCode = "404", description = "Ingredient not found",
+            content = @Content(schema = @Schema(implementation = ErrorDto.class)))
+    @GetMapping("/{name}")
+    ResponseEntity<IngredientResponseDto> findByName(@Parameter(description = "Ingredient name not found", required = true) @PathVariable("name") String name);
+
+    @Operation(summary = "Add a new ingredient")
     @ApiResponse(responseCode = "201", description = "Ingredient created")
     @ApiResponse(responseCode = "400", description = "Invalid request",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
@@ -43,6 +50,6 @@ public interface IngredientApi {
     @ApiResponse(responseCode = "200", description = "Ingredient successfully updated")
     @ApiResponse(responseCode = "404", description = "Ingredient not found",
             content = @Content(schema = @Schema(implementation = ErrorDto.class)))
-    @PatchMapping("/{id}")
-    ResponseEntity<IngredientResponseDto> patchIngredient(@Parameter(description = "Ingredient id not found", required = true) @PathVariable("id") UUID idIngredient, @RequestBody IngredientPatchDto patchDto);
+    @PatchMapping("/{name}")
+    ResponseEntity<IngredientResponseDto> patchIngredient(@Parameter(description = "Ingredient name not found", required = true) @PathVariable("name") String ingredientName, @RequestBody IngredientPatchDto patchDto);
 }
