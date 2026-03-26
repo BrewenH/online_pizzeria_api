@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -44,7 +45,7 @@ public class PizzaServiceImpl implements PizzaService {
         try {
             optPizza = pizzaDao.getReferenceById(id);
         } catch (EntityNotFoundException _) {
-            throw new EntityNotFoundException(messages.getMessage("pizza.id.notFound"));
+            throw new EntityNotFoundException(messages.getMessage("pizza.id.not-found"));
         }
 
         return pizzaMapper.toPizzaResponseDto(optPizza);
@@ -60,6 +61,11 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public PizzaResponseDto findByName(String name) {
-        return null;
+        Optional<Pizza> pizza = null;
+
+        pizza = pizzaDao.findByName(name);
+
+        return pizzaMapper.toPizzaResponseDto(pizza.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("pizza.name.not-found"))));
+
     }
 }
