@@ -23,7 +23,7 @@ import java.util.List;
 @AutoConfigureTestRestTemplate
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
- class PizzaControllerIntegrationEndToEndTest {
+ class PizzaControllerEndToEndTest {
 
     private static final String API_PIZZAS_ENDPOINT = "/pizzas";
 
