@@ -1,12 +1,16 @@
 package com.accenture.onlinepizzeriaapi.service;
 
 
+
+
 import com.accenture.onlinepizzeriaapi.exception.PizzaException;
 import com.accenture.onlinepizzeriaapi.mapper.PizzaMapper;
 import com.accenture.onlinepizzeriaapi.model.Pizza;
+
 import com.accenture.onlinepizzeriaapi.repository.PizzaDao;
 import com.accenture.onlinepizzeriaapi.service.dto.PizzaRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.PizzaResponseDto;
+import com.accenture.onlinepizzeriaapi.utils.Messages;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +49,7 @@ public class PizzaServiceImpl implements PizzaService {
         try {
             optPizza = pizzaDao.getReferenceById(id);
         } catch (EntityNotFoundException _) {
-            throw new EntityNotFoundException(messages.getMessage("pizza.id.not-found"));
+            throw new EntityNotFoundException(messages.getMessage(Messages.PIZZA_ID_NOT_FOUND));
         }
 
         return pizzaMapper.toPizzaResponseDto(optPizza);
@@ -69,7 +73,7 @@ public class PizzaServiceImpl implements PizzaService {
 
         pizza = pizzaDao.findByName(name);
 
-        return pizzaMapper.toPizzaResponseDto(pizza.orElseThrow(() -> new EntityNotFoundException(messages.getMessage("pizza.name.not-found"))));
+        return pizzaMapper.toPizzaResponseDto(pizza.orElseThrow(() -> new EntityNotFoundException(messages.getMessage(Messages.PIZZA_NAME_NOT_FOUND))));
 
     }
 
@@ -77,6 +81,6 @@ public class PizzaServiceImpl implements PizzaService {
     @Override
     public void checkPizza(PizzaRequestDto dtoRequest) {
         if (dtoRequest == null)
-            throw new PizzaException(messages.getMessage("pizza.null"));
+            throw new PizzaException(messages.getMessage(Messages.PIZZA_NULL));
     }
 }
