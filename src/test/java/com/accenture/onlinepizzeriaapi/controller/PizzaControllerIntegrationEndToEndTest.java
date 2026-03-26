@@ -48,25 +48,40 @@ import java.util.List;
         Boolean removedFromMenu = false;
 
         PizzaRequestDto pizzaRequestDto = new PizzaRequestDto(name, size, price, ingredients, removedFromMenu);
-
         ResponseEntity<Void> responseEntity = restTemplate.postForEntity("http://localhost:" + port + API_PIZZAS_ENDPOINT, pizzaRequestDto, Void.class);
+        List<PizzaResponseDto> pizzaList = getPizzaResponseDtos();
 
-        PizzaResponseDto pizzaResponseDto = pizzaService.addPizza(pizzaRequestDto);
 
         Assertions.assertAll(() -> {
             Assertions.assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode(), "Post pizza must return a 201 http response code");
-            Assertions.assertNotNull(pizzaResponseDto, "Pizza dto response returned from service must not be null");
-            Assertions.assertNotNull(pizzaResponseDto.id(), "Pizza return must not have a null UUID");
-            Assertions.assertEquals(name, pizzaResponseDto.name(), "Pizza name must match the request name");
-            Assertions.assertEquals(size, pizzaResponseDto.size(), "Pizza size must match the request size");
-            Assertions.assertEquals(price, pizzaResponseDto.price(), "Pizza price must match the request price");
-            Assertions.assertEquals(ingredients, pizzaResponseDto.ingredients(), "Pizza ingredients must match the request naingredientsme");
-            Assertions.assertEquals(removedFromMenu, pizzaResponseDto.removedFromMenu(), "Pizza removedFromMenu must match the request removedFromMenu");
+            Assertions.assertNotNull(responseEntity, "Pizza dto response returned from service must not be null");
+            Assertions.assertEquals(name, pizzaList.getFirst().name(), "Pizza name must match the request name");
+            Assertions.assertEquals(size, pizzaList.getFirst().size(), "Pizza size must match the request size");
+            Assertions.assertEquals(price, pizzaList.getFirst().price(), "Pizza price must match the request price");
+            Assertions.assertEquals(ingredients, pizzaList.getFirst().ingredients(), "Pizza ingredients must match the request naingredientsme");
+            Assertions.assertEquals(removedFromMenu, pizzaList.getFirst().removedFromMenu(), "Pizza removedFromMenu must match the request removedFromMenu");
+        });
+    }
+
+
+
+    @Test
+    @Order(2)
+    @DisplayName("Creates a Pizza through POST endpoint with bad request")
+    void testPostPizzaBadRequest() {
+
+        ResponseEntity<Void> response = restTemplate.postForEntity("http://localhost:" + port + API_PIZZAS_ENDPOINT, null, Void.class);
+        List<PizzaResponseDto> pizzaList = getPizzaResponseDtos();
+
+        Assertions.assertAll(() -> {
+            Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode(), "Post ingredient must return a 201 http response code.");
+            Assertions.assertNotNull(response, "Ingredient dto response returned from service must not be null.");
+            Assertions.assertEquals(1, pizzaList.size());
         });
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     @DisplayName("Test the find all get endpoint")
     void testGetAllPizzaSuccess() {
         ResponseEntity<List<PizzaResponseDto>> responseEntity = restTemplate.exchange("http://localhost:" + port + API_PIZZAS_ENDPOINT, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
@@ -85,4 +100,57 @@ import java.util.List;
             Assertions.assertEquals(false, pizzas.getFirst().removedFromMenu());
         });
     }
-}
+
+        @Test
+        @Order(4)
+        @DisplayName("Test the find by name through GET/{name} endpoint")
+        void testFindByNameSuccess() {
+            List<PizzaResponseDto> pizzaList = getPizzaResponseDtos();
+
+            String name = pizzaList.getFirst().name();
+            List<Ingredient> ingredients = List.of();
+
+            ResponseEntity<PizzaResponseDto> findByNameResponse = restTemplate.exchange("http://localhost:" + port + API_PIZZAS_ENDPOINT + "/" + name, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
+            });
+
+            PizzaResponseDto pizzaResponseDto = findByNameResponse.getBody();
+
+            Assertions.assertAll(() -> {
+                Assertions.assertEquals(HttpStatus.OK, findByNameResponse.getStatusCode());
+                Assertions.assertNotNull(findByNameResponse.getBody());
+                Assertions.assertEquals("Margherita", pizzaResponseDto.name());
+                Assertions.assertEquals(Size.MEDIUM, pizzaResponseDto.size());
+                Assertions.assertEquals(10.50, pizzaResponseDto.price());
+                Assertions.assertEquals(ingredients, pizzaResponseDto.ingredients());
+                Assertions.assertEquals(false, pizzaResponseDto.removedFromMenu());
+            });
+        }
+
+        @Test
+        @Order(5)
+        @DisplayName("Test the find by name through GET/{name} endpoint not found")
+        void testFindByNameEntityNotFound() {
+
+            String name = "AZERAEREAR";
+
+            ResponseEntity<Void> findByNameResponse = restTemplate.exchange("http://localhost:" + port + API_PIZZAS_ENDPOINT + "/" + name, HttpMethod.GET, null, Void.class);
+
+            Assertions.assertAll(() -> {
+                Assertions.assertEquals(HttpStatus.NOT_FOUND, findByNameResponse.getStatusCode());
+            });
+        }
+
+
+
+        private List<PizzaResponseDto> getPizzaResponseDtos() {
+            ResponseEntity<List<PizzaResponseDto>> getAllResponse = restTemplate.exchange("http://localhost:" + port + API_PIZZAS_ENDPOINT, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
+            });
+
+            List<PizzaResponseDto> pizzaList = getAllResponse.getBody();
+            return pizzaList;
+        }
+
+
+    }
+
+
