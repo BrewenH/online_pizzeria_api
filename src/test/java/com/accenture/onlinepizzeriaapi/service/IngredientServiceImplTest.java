@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
@@ -188,13 +187,13 @@ class IngredientServiceImplTest {
         @Test
         @DisplayName("by Id: not found")
         void testFindByIdNotFound() {
-            Assertions.assertThrows(IngredientException.class, () -> service.findById(UUID.randomUUID()));
+            Assertions.assertThrows(EntityNotFoundException.class, () -> service.findById(UUID.randomUUID()));
         }
 
         @Test
         @DisplayName("by name: not found")
         void testFindByNameNotFound() {
-            Assertions.assertThrows(IngredientException.class, () -> service.findByName("Mozzarella"));
+            Assertions.assertThrows(EntityNotFoundException.class, () -> service.findByName("Mozzarella"));
         }
     }
 
@@ -236,12 +235,16 @@ class IngredientServiceImplTest {
         void testPatchQuantityNameNotFound() {
 
             IngredientPatchDto patchDto = new IngredientPatchDto(2);
-            assertThrows(IngredientException.class, () -> service.patchIngredient(" ",patchDto));
+            assertThrows(EntityNotFoundException.class, () -> service.patchIngredient(" ",patchDto));
         }
 
         @Test
         @DisplayName("Invalid (quantity negative)")
         void testPatchIngredientSizeInvalid(){
+
+            Ingredient ingredientEntity = new Ingredient( "Mozzarella", 0);
+            Mockito.when(ingredientDao.findByName(Mockito.any(String.class))).thenReturn(Optional.of(ingredientEntity));
+
             IngredientPatchDto patchDto = new IngredientPatchDto(-1);
 
             assertThrows(IngredientException.class, () -> service.patchIngredient("Mozzarella", patchDto));

@@ -1,4 +1,4 @@
-package com.accenture.onlinepizzeriaapi.controller.impl;
+package com.accenture.onlinepizzeriaapi.controller;
 
 import com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
@@ -63,6 +63,8 @@ class IngredientControllerEndToEndTest {
             Assertions.assertEquals(HttpStatus.CREATED, response.getStatusCode(), "Post ingredient must return a 201 http response code.");
             Assertions.assertNotNull(response, "Ingredient dto response returned from service must not be null.");
             Assertions.assertEquals(1, ingredientList.size());
+            Assertions.assertEquals(name, ingredientList.getFirst().name());
+            Assertions.assertEquals(quantity, ingredientList.getFirst().quantity());
         });
     }
 
@@ -114,9 +116,7 @@ class IngredientControllerEndToEndTest {
 
         ResponseEntity<Void> findByNameResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT + "/" + name, HttpMethod.GET, null, Void.class);
 
-        Assertions.assertAll(() -> {
             Assertions.assertEquals(HttpStatus.NOT_FOUND, findByNameResponse.getStatusCode());
-        });
     }
 
     @Test
@@ -141,7 +141,6 @@ class IngredientControllerEndToEndTest {
         ResponseEntity<List<IngredientResponseDto>> getAllResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
         });
 
-        List<IngredientResponseDto> ingredientLists = getAllResponse.getBody();
-        return ingredientLists;
+        return  getAllResponse.getBody();
     }
 }

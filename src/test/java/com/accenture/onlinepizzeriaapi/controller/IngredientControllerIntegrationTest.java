@@ -1,12 +1,15 @@
-package com.accenture.onlinepizzeriaapi.controller.impl;
+package com.accenture.onlinepizzeriaapi.controller;
 
+import com.accenture.onlinepizzeriaapi.controller.impl.IngredientController;
 import com.accenture.onlinepizzeriaapi.exception.IngredientException;
 import com.accenture.onlinepizzeriaapi.mapper.IngredientMapper;
 import com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
+import com.accenture.onlinepizzeriaapi.utils.Messages;
 import jakarta.persistence.EntityNotFoundException;
+import org.aspectj.bridge.Message;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -104,7 +107,7 @@ class IngredientControllerIntegrationTest {
     @DisplayName("Test find ingredient invalid with name not found")
     void testFindByNameFail() throws Exception {
 
-        Mockito.when(ingredientService.findByName(" ")).thenThrow(new EntityNotFoundException("ingredient.name.not-found"));
+        Mockito.when(ingredientService.findByName(" ")).thenThrow(new EntityNotFoundException(Messages.INGREDIENT_NAME_NOT_FOUND));
 
         mockMvc.perform(MockMvcRequestBuilders.get(API_INGREDIENTS_ENDPOINT + "/ "))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
@@ -138,7 +141,7 @@ class IngredientControllerIntegrationTest {
 
         IngredientPatchDto jsonBody = new IngredientPatchDto(3);
 
-        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenThrow(new IngredientException("ingredient.name.not-found"));
+        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenThrow(new IngredientException(Messages.INGREDIENT_NAME_NOT_FOUND));
 
         mockMvc.perform(MockMvcRequestBuilders.patch(API_INGREDIENTS_ENDPOINT + "/" + name)
                         .contentType(MediaType.APPLICATION_JSON)

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record IngredientRequestDto(
 
-        @NotBlank(message = "ingredient.name.null")
+        @NotBlank(message =  "ingredient.name.null")
         String name,
 
         @NotNull(message = "ingredient.quantity.null")
