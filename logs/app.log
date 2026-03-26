@@ -1127,15 +1127,11 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
         pizza p1_0
 2026-03-26T09:11:01.791+01:00 DEBUG 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-5] org.hibernate.SQL                        : 
     select
-        i1_0.pizza_id,
-        i1_1.id,
-        i1_1.name,
-        i1_1.quantity 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
-        pizza_ingredients i1_0 
-    join
-        ingredient i1_1 
-            on i1_1.id=i1_0.ingredient_id 
+        ingredient i1_0 
     where
         i1_0.pizza_id=?
 2026-03-26T09:11:01.791+01:00 TRACE 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [21e13f86-9940-4fa7-9892-cee1370b7716]
@@ -1150,15 +1146,11 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
         pizza p1_0
 2026-03-26T09:11:01.809+01:00 DEBUG 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-6] org.hibernate.SQL                        : 
     select
-        i1_0.pizza_id,
-        i1_1.id,
-        i1_1.name,
-        i1_1.quantity 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
-        pizza_ingredients i1_0 
-    join
-        ingredient i1_1 
-            on i1_1.id=i1_0.ingredient_id 
+        ingredient i1_0 
     where
         i1_0.pizza_id=?
 2026-03-26T09:11:01.809+01:00 TRACE 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [21e13f86-9940-4fa7-9892-cee1370b7716]
@@ -1176,15 +1168,11 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 2026-03-26T09:11:02.242+01:00 TRACE 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-7] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [Margherita]
 2026-03-26T09:11:02.246+01:00 DEBUG 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-7] org.hibernate.SQL                        : 
     select
-        i1_0.pizza_id,
-        i1_1.id,
-        i1_1.name,
-        i1_1.quantity 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
-        pizza_ingredients i1_0 
-    join
-        ingredient i1_1 
-            on i1_1.id=i1_0.ingredient_id 
+        ingredient i1_0 
     where
         i1_0.pizza_id=?
 2026-03-26T09:11:02.247+01:00 TRACE 28576 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-7] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [21e13f86-9940-4fa7-9892-cee1370b7716]
@@ -1535,8 +1523,8 @@ org.springframework.context.NoSuchMessageException: No message found under code 
 2026-03-26T09:16:19.800+01:00 DEBUG 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.SQL                        : 
     insert 
     into
-        pizza
-        (name, price, removed_from_menu, size, id) 
+        ingredient
+        (name, quantity, id) 
     values
         (?, ?, ?, ?, ?)
 2026-03-26T09:16:19.809+01:00 TRACE 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [Margherita]
@@ -1592,24 +1580,18 @@ org.springframework.context.NoSuchMessageException: No message found under code 
 2026-03-26T09:16:20.151+01:00 TRACE 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [a192da6e-ef6e-4540-95ea-785edf9aa9bd]
 2026-03-26T09:16:20.168+01:00 DEBUG 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-5] org.hibernate.SQL                        : 
     select
-        p1_0.id,
-        p1_0.name,
-        p1_0.price,
-        p1_0.removed_from_menu,
-        p1_0.size 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
         pizza p1_0
 2026-03-26T09:16:20.169+01:00 DEBUG 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-5] org.hibernate.SQL                        : 
     select
-        i1_0.pizza_id,
-        i1_1.id,
-        i1_1.name,
-        i1_1.quantity 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
-        pizza_ingredients i1_0 
-    join
-        ingredient i1_1 
-            on i1_1.id=i1_0.ingredient_id 
+        ingredient i1_0 
     where
         i1_0.pizza_id=?
 2026-03-26T09:16:20.169+01:00 TRACE 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [a192da6e-ef6e-4540-95ea-785edf9aa9bd]
@@ -1624,15 +1606,11 @@ org.springframework.context.NoSuchMessageException: No message found under code 
         pizza p1_0
 2026-03-26T09:16:20.186+01:00 DEBUG 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-6] org.hibernate.SQL                        : 
     select
-        i1_0.pizza_id,
-        i1_1.id,
-        i1_1.name,
-        i1_1.quantity 
+        i1_0.id,
+        i1_0.name,
+        i1_0.quantity 
     from
-        pizza_ingredients i1_0 
-    join
-        ingredient i1_1 
-            on i1_1.id=i1_0.ingredient_id 
+        ingredient i1_0 
     where
         i1_0.pizza_id=?
 2026-03-26T09:16:20.186+01:00 TRACE 31940 --- [onlinePizzeriaApi] [http-nio-auto-1-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:UUID) <- [a192da6e-ef6e-4540-95ea-785edf9aa9bd]
