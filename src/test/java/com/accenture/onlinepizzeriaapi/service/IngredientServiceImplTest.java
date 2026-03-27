@@ -243,7 +243,6 @@ class IngredientServiceImplTest {
         void testPatchIngredientSizeInvalid(){
 
             Ingredient ingredientEntity = new Ingredient( "Mozzarella", 0);
-            Mockito.when(ingredientDao.findByName(Mockito.any(String.class))).thenReturn(Optional.of(ingredientEntity));
 
             IngredientPatchDto patchDto = new IngredientPatchDto(-1);
 

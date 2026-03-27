@@ -81,16 +81,15 @@ public class IngredientServiceImpl implements IngredientService {
     public IngredientResponseDto patchIngredient(String name, IngredientPatchDto patchDto) {
         log.info("Entering in the method that updates ingredient quantity in stock with input name= {} and dto={}", name, patchDto);
 
+        if (patchDto.quantity() <1)
+            throw new IngredientException(messages.getMessage(Messages.INGREDIENT_QUANTITY_MINIMUM));
+
         Optional<Ingredient> optIngredient = ingredientDao.findByName(name);
         if(optIngredient.isEmpty())
             throw new EntityNotFoundException(messages.getMessage(Messages.INGREDIENT_ID_NOT_FOUND));
-
         Ingredient ingredient = optIngredient.get();
-        if (patchDto == null || patchDto.quantity()  <1)
-            throw new IngredientException(messages.getMessage(Messages.INGREDIENT_QUANTITY_MINIMUM));
 
         ingredient.setQuantity(patchDto.quantity());
-
 
         Ingredient updated = ingredientDao.save(ingredient);
         return ingredientMapper.toIngredientResponseDto(updated);

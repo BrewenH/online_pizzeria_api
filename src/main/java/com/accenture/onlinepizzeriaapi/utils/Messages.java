@@ -20,7 +20,7 @@ public class Messages {
     public static final String INGREDIENT_NULL = "ingredient.null";
     public static final String INGREDIENT_NAME_NULL = "ingredient.name.null";
     public static final String INGREDIENT_QUANTITY_NULL = "ingredient.quantity.null";
-    public static final String INGREDIENT_QUANTITY_MINIMUM = "ingredient.quantity.minimum-invalid";
+    public static final String INGREDIENT_QUANTITY_MINIMUM = "ingredient.quantity.minimum-value";
     public static final String INGREDIENT_NAME_NOT_FOUND = "ingredient.name.not-found";
 
 }

@@ -124,7 +124,8 @@ class IngredientControllerIntegrationTest {
         IngredientPatchDto jsonBody = new IngredientPatchDto(quantity);
         IngredientResponseDto responseDto = new IngredientResponseDto(id, name, quantity);
 
-        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class))).thenReturn(responseDto);
+        Mockito.when(ingredientService.patchIngredient((Mockito.any(String.class)), Mockito.any(IngredientPatchDto.class)))
+                .thenReturn(responseDto);
 
         mockMvc.perform(MockMvcRequestBuilders.patch(API_INGREDIENTS_ENDPOINT + "/" + name)
                         .contentType(MediaType.APPLICATION_JSON)

@@ -1,18 +1,18 @@
 package com.accenture.onlinepizzeriaapi.controller;
 
 import com.accenture.onlinepizzeriaapi.service.IngredientServiceImpl;
+import com.accenture.onlinepizzeriaapi.service.dto.IngredientPatchDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientRequestDto;
 import com.accenture.onlinepizzeriaapi.service.dto.IngredientResponseDto;
 import org.junit.jupiter.api.*;
+import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.resttestclient.TestRestTemplate;
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
@@ -70,7 +70,7 @@ class IngredientControllerEndToEndTest {
 
     @Test
     @Order(3)
-    @DisplayName("Test the find all GET endpoint")
+    @DisplayName("Test the find all through GET endpoint")
     void testGetAllIngredientsSuccess() {
         ResponseEntity<List<IngredientResponseDto>> findAllResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
         });
@@ -88,6 +88,18 @@ class IngredientControllerEndToEndTest {
 
     @Test
     @Order(4)
+    @DisplayName("Test the find by name through GET/{name} name not found")
+    void testFindByNameBadRequest() {
+
+        String name = "ham";
+
+        ResponseEntity<Void> findByNameResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT + "/" + name, HttpMethod.GET, null, Void.class);
+
+        Assertions.assertEquals(HttpStatus.NOT_FOUND, findByNameResponse.getStatusCode());
+    }
+
+    @Test
+    @Order(5)
     @DisplayName("Test the find by name through GET/{name} endpoint")
     void testFindByNameSuccess() {
         List<IngredientResponseDto> ingredientLists = getIngredientResponseDtos();
@@ -108,24 +120,11 @@ class IngredientControllerEndToEndTest {
     }
 
     @Test
-    @Order(5)
-    @DisplayName("Test the find by name through GET/{name} name not found")
-    void testFindByNameBadRequest() {
-
-        String name = "ham";
-
-        ResponseEntity<Void> findByNameResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT + "/" + name, HttpMethod.GET, null, Void.class);
-
-            Assertions.assertEquals(HttpStatus.NOT_FOUND, findByNameResponse.getStatusCode());
-    }
-
-    @Test
-    @Order(7)
+    @Order(6)
     @DisplayName("Test the patch quantity method through PATCH/{name} endpoint with bad request")
     void testPatchQuantityBadRequest() {
         List<IngredientResponseDto> ingredientLists = getIngredientResponseDtos();
         String name = ingredientLists.getFirst().name();
-
 
         ResponseEntity<Void> patchResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT + "/" + name, HttpMethod.PATCH, null, Void.class);
 
@@ -134,6 +133,30 @@ class IngredientControllerEndToEndTest {
         Assertions.assertAll(() -> {
             Assertions.assertEquals(HttpStatus.BAD_REQUEST, patchResponse.getStatusCode());
             Assertions.assertEquals(1, updatedIngredient.quantity());
+        });
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Test the patch quantity method through PATCH/{name} endpoint")
+    void testPatchQuantitySuccess() {
+        List<IngredientResponseDto> ingredientLists = getIngredientResponseDtos();
+        String name = ingredientLists.getFirst().name();
+
+        IngredientPatchDto patchDto = new IngredientPatchDto(2);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<IngredientPatchDto> request = new HttpEntity<>(patchDto, headers);
+
+        ResponseEntity<IngredientResponseDto> patchResponse = restTemplate.exchange("http://localhost:" + port + API_INGREDIENTS_ENDPOINT + "/" + name, HttpMethod.PATCH, request, IngredientResponseDto.class);
+
+        IngredientResponseDto updatedIngredient = ingredientService.findByName(ingredientLists.getFirst().name());
+
+        Assertions.assertAll(() -> {
+            Assertions.assertEquals(HttpStatus.OK, patchResponse.getStatusCode());
+            Assertions.assertEquals(2, updatedIngredient.quantity());
         });
     }
 

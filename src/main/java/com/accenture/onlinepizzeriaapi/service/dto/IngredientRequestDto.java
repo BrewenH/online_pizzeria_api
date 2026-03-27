@@ -10,6 +10,6 @@ public record IngredientRequestDto(
         String name,
 
         @NotNull(message = "ingredient.quantity.null")
-        @Min(value = 0, message = "ingredient.quantity.minimum-invalid")
+        @Min(value = 0, message = "ingredient.quantity.minimum-value")
         int quantity) {
 }
